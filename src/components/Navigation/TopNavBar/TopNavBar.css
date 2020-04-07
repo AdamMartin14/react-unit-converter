@@ -1,3 +1,8 @@
+.TopNavBarContainer {
+    z-index: 0;
+    height: 0;
+}
+
 .TopNavBar {
     position: fixed;
     height: 70px;
@@ -5,5 +10,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: -1;
     background-color: #000000;
 }

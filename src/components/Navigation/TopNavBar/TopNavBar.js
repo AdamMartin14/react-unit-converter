@@ -2,19 +2,26 @@
 import React from 'react';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import MobileNavToggle from './MobileNavToggle/MobileNavToggle';
+//import MobileNavModal from './MobileNavModal/MobileNavModal';
 import classes from './TopNavBar.css';
 
 const topNavBar = (props) => (
 
-    <header className={classes.TopNavBar}>
+    <div className={classes.TopNavBarContainer}>
 
-        <nav>
-            <NavigationItems />
-        </nav>
+        <header className={classes.TopNavBar}>
 
-        <MobileNavToggle />
+            <nav>
+                <NavigationItems />
+            </nav>
 
-    </header>
+            <MobileNavToggle clicked={props.hamburgerIconClicked} />
+
+        </header>
+    
+        
+
+    </div>
 
 );
 

@@ -4,11 +4,14 @@ import classes from './MobileNavToggle.css';
 
 
 const mobileNavToggle = (props) => (
-        <div className={classes.MobileNavToggle}>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+
+    <div className={classes.MobileNavToggle} onClick={props.clicked}>
+        <div></div>
+        <div></div>
+        <div></div>
+
+    </div>
+
 );
 
 
