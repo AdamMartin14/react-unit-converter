@@ -1,0 +1,19 @@
+.NavigationItem {
+    padding: 10px;
+}
+
+.NavigationItem a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.NavigationItem a:hover {
+    opacity: 0.8;
+}
+
+@media(min-width: 540px) {
+    .NavigationItem {
+        display: block;
+    }
+}
+

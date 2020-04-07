@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import TopNavBar from './components/Navigation/TopNavBar/TopNavBar';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
+
+        <TopNavBar />
         
       </div>
     );

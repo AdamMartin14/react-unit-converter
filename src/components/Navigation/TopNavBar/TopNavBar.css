@@ -1,0 +1,9 @@
+.TopNavBar {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+}
