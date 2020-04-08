@@ -6,18 +6,16 @@ import classes from './MobileNavModal.css';
 const mobileNavModal = (props) => {
 
     // MOBILE NAV MODAL OPEN/ CLOSE LOGIC
-    let attachedClasses = [classes.MobileNavModal, classes.Close];
+    let attachedClasses = [classes.MobileNavModal];
 
     if (props.open) {
         attachedClasses = [classes.MobileNavModal, classes.Open];
     }
 
     return(
-
         <div className={attachedClasses.join(' ')}>
-        
+            
         </div>
-
     );
 
 }

@@ -11,12 +11,14 @@ class NavigationContainer extends Component {
     showMobileNavModal: false
   }
 
-  mobileNavModalOpenHandler = () => {
-    this.setState({showMobileNavModal: true});
-  }
+  mobileNavModalToggleHandler = () => {
+    if (this.state.showMobileNavModal === false) {
+      this.setState({showMobileNavModal: true});
+    }
 
-  mobileNavModalClosedHandler = () => {
-    this.setState({showMobileNavModal: false});
+    else {
+      this.setState({showMobileNavModal: false});
+    }
   }
 
     
@@ -26,15 +28,15 @@ class NavigationContainer extends Component {
 
             <div style={{height: 0}}>
 
-                <TopNavBar hamburgerIconClicked={this.mobileNavModalOpenHandler} />
+                <TopNavBar 
+                  hamburgerIconClicked={this.mobileNavModalToggleHandler} 
+                />
 
                 <MobileNavModal
-                    open={this.state.showMobileNavModal}
-                    closed={this.mobileNavModalClosedHandler} 
+                  open={this.state.showMobileNavModal}
                 />
         
-            </div>
-                 
+            </div>               
         )
     }   
 };
