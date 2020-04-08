@@ -2,7 +2,6 @@
 import React from 'react';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import MobileNavToggle from './MobileNavToggle/MobileNavToggle';
-//import MobileNavModal from './MobileNavModal/MobileNavModal';
 import classes from './TopNavBar.css';
 
 const topNavBar = (props) => (
@@ -17,9 +16,7 @@ const topNavBar = (props) => (
 
             <MobileNavToggle clicked={props.hamburgerIconClicked} />
 
-        </header>
-    
-        
+        </header>     
 
     </div>
 
