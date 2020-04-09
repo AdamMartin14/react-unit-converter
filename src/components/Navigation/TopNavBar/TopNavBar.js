@@ -1,25 +1,54 @@
-// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
-import React from 'react';
+// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
+import React, {Component} from 'react';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import MobileNavToggle from './MobileNavToggle/MobileNavToggle';
 import classes from './TopNavBar.css';
 
-const topNavBar = (props) => (
 
-    <div className={classes.TopNavBarContainer}>
+/* OPTIONAL: IMPLEMENT BURGER ICON ANIMATION OPEN/ CLOSE LOGIC IN HERE FOR BURGER ICON OPEN/ CLOSE 
+ANIMATION LOGIC - COMMENTED-OUT CODE HERE IS A START (TOPNAVBAR + MOBILENAVTOGGLE IS THE SAME AS 
+NAVIGATIONCONTAINER + MOBILENAVMODAL FOR THIS) */
 
-        <header className={classes.TopNavBar}>
+class TopNavBar extends Component {
 
-            <nav>
-                <NavigationItems />
-            </nav>
+    // BURGER ICON ANIMATION OPEN/ CLOSE LOGIC
+    // state = {
+    //     animateBurgerIcon: false
+    // }
 
-            <MobileNavToggle clicked={props.hamburgerIconClicked} />
+    // mobileNavModalToggleHandler = () => {
+    //     if (this.state.animateBurgerIcon === false) {
+    //         this.setState({animateBurgerIcon: true});
+    //     }
+    //     console.log(this.state.animateBurgerIcon) 
+    // }
 
-        </header>     
+    
+    render() {
 
-    </div>
+        return (
 
-);
+            <div className={classes.TopNavBarContainer}>
 
-export default topNavBar;
+                <header className={classes.TopNavBar}>
+    
+                    <nav>
+                        <NavigationItems />
+                    </nav>
+                    
+                    {/* Need to somehow bind burger icon animation here */}
+                    <MobileNavToggle 
+                        clicked={this.props.hamburgerIconClicked} 
+                        // animated={this.state.animateBurgerIcon}
+                    />
+    
+            </header>     
+    
+        </div>
+
+        )
+    }   
+
+};
+
+export default TopNavBar;

@@ -24,7 +24,7 @@ class NavigationContainer extends Component {
     
     render() {
 
-        return(
+        return (
 
             <div style={{height: 0}}>
 

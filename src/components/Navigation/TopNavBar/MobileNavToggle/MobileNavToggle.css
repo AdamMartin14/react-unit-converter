@@ -11,10 +11,14 @@
     cursor: pointer;
 }
 
-.MobileNavToggle div {
+.ToggleBar {
     width: 90%;
     height: 3px;
     background-color: #FFFFFF;
+}
+
+.Red {
+    background-color: red;
 }
 
 @media (min-width: 540px) {
