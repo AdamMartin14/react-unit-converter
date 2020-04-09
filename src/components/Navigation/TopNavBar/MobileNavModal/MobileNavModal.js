@@ -1,6 +1,7 @@
 // FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
 import React from 'react';
 import classes from './MobileNavModal.css';
+import NavigationItems from '../../NavigationItems/NavigationItems';
 
 
 const mobileNavModal = (props) => {
@@ -14,6 +15,10 @@ const mobileNavModal = (props) => {
 
     return(
         <div className={attachedClasses.join(' ')}>
+
+            <nav className={classes.MobileOnlyNavItems}>
+                <NavigationItems />
+            </nav>
             
         </div>
     );

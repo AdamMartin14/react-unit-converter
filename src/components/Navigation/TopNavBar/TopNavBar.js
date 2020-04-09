@@ -1,54 +1,31 @@
-// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
-import React, {Component} from 'react';
+// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
+import React from 'react';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import MobileNavToggle from './MobileNavToggle/MobileNavToggle';
 import classes from './TopNavBar.css';
 
 
-/* OPTIONAL: IMPLEMENT BURGER ICON ANIMATION OPEN/ CLOSE LOGIC IN HERE FOR BURGER ICON OPEN/ CLOSE 
-ANIMATION LOGIC - COMMENTED-OUT CODE HERE IS A START (TOPNAVBAR + MOBILENAVTOGGLE IS THE SAME AS 
-NAVIGATIONCONTAINER + MOBILENAVMODAL FOR THIS) */
+const topNavBar = (props) => {
 
-class TopNavBar extends Component {
+    return (
 
-    // BURGER ICON ANIMATION OPEN/ CLOSE LOGIC
-    // state = {
-    //     animateBurgerIcon: false
-    // }
+        <div className={classes.TopNavBarContainer}>
 
-    // mobileNavModalToggleHandler = () => {
-    //     if (this.state.animateBurgerIcon === false) {
-    //         this.setState({animateBurgerIcon: true});
-    //     }
-    //     console.log(this.state.animateBurgerIcon) 
-    // }
-
+            <header className={classes.TopNavBar}>
     
-    render() {
-
-        return (
-
-            <div className={classes.TopNavBarContainer}>
-
-                <header className={classes.TopNavBar}>
-    
-                    <nav>
-                        <NavigationItems />
-                    </nav>
+                <nav className={classes.DesktopOnlyNavItems}>
+                    <NavigationItems />
+                </nav>
                     
-                    {/* Need to somehow bind burger icon animation here */}
-                    <MobileNavToggle 
-                        clicked={this.props.hamburgerIconClicked} 
-                        // animated={this.state.animateBurgerIcon}
-                    />
+                <MobileNavToggle 
+                    clicked={props.hamburgerIconClicked} 
+                />
     
             </header>     
     
         </div>
-
-        )
-    }   
-
+    )
 };
 
-export default TopNavBar;
+
+export default topNavBar;
