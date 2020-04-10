@@ -1,10 +1,11 @@
 .TopNavBarContainer {
     z-index: 0;
-    height: 0;
+    height: 70px;
 }
 
 .TopNavBar {
     position: fixed;
+    top: 0;
     height: 70px;
     width: 100%;
     display: flex;

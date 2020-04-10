@@ -26,7 +26,7 @@ class NavigationContainer extends Component {
 
         return (
 
-            <div style={{height: 0}}>
+            <div>
 
                 <TopNavBar 
                   hamburgerIconClicked={this.mobileNavModalToggleHandler} 
