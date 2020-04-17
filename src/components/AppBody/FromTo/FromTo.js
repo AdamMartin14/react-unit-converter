@@ -14,7 +14,7 @@ const temperatureMeasurementUnitsArray = temperatureMeasurementUnits.map(ctrl =>
 ));
 
 
-let celsiusFahrenheitOutput = ''
+let temperatureConversionOutput = ''
 
 
 class FromTo extends Component {
@@ -29,28 +29,30 @@ class FromTo extends Component {
     celsiusToFahrenheitHandler = (event) => {
         console.log('c to f handler fired');
         const value = event.target.value;
-        console.log(value);
+        console.log('Initial value:' + ' ' + value);
 
         let celsiusToFahrenheitResult = value * 9 / 5 + 32;
-        celsiusFahrenheitOutput = celsiusToFahrenheitResult;
-        console.log(celsiusFahrenheitOutput);
+        temperatureConversionOutput = celsiusToFahrenheitResult.toFixed(1);
+        console.log('Output:' + ' ' + temperatureConversionOutput);
 
         // PASS RESULT TO OTHER BOX
-        this.setState({celsiusToFahrenheit: celsiusFahrenheitOutput});
+        this.setState({celsiusToFahrenheit: temperatureConversionOutput});
+        console.log('c to f state:' + ' ' + this.state.celsiusToFahrenheit);
     }
 
 
     fahrenheitToCelsiusHandler = (event) => {
         console.log('f to c handler fired');
         const value = event.target.value;
-        console.log(value);
+        console.log('Initial value:' + ' ' + value);
 
         let fahrenheitToCelsiusResult = (value - 32) * 5 / 9;
-        celsiusFahrenheitOutput = fahrenheitToCelsiusResult;
-        console.log(celsiusFahrenheitOutput);
+        temperatureConversionOutput = fahrenheitToCelsiusResult.toFixed(1);
+        console.log('Output:' + ' ' + temperatureConversionOutput);
 
         // PASS RESULT TO OTHER BOX
-        this.setState({fahrenheitToCelsius: celsiusFahrenheitOutput});
+        this.setState({fahrenheitToCelsius: temperatureConversionOutput});
+        console.log('f to c state:' + ' ' + this.state.fahrenheitToCelsius);
     }
 
     
