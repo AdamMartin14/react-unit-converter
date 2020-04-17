@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import DropDownMenu from '../../UI/DropDownMenu/DropDownMenu';
 import PageSecondaryHeading from '../PageSecondaryHeading/PageSecondaryHeading';
-import '../UnitName/UnitName.css';
+import classes from '../UnitName/UnitName.css';
 
 
 const unitNameValues = [
@@ -34,7 +34,7 @@ class UnitName extends Component {
     render() {
         
         return (
-            <div>
+            <div className={classes.UnitNameContainer}>
                 <DropDownMenu 
                     dropDownListOptions={unitNameValuesArray} 
                     unitNameSelected={this.unitNameTitleChangedHandler} 
