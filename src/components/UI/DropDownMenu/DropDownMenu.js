@@ -1,11 +1,12 @@
 // FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
 import React from 'react';
+import '../DropDownMenu/DropDownMenu.css';
 
 
 const dropDownMenu = (props) => {
 
         return (
-            <select>
+            <select onChange={props.unitNameSelected}>
                 {props.dropDownListOptions}
             </select>
         );

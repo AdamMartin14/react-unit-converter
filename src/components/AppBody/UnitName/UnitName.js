@@ -1,6 +1,8 @@
-// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
+// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
 import DropDownMenu from '../../UI/DropDownMenu/DropDownMenu';
+import PageSecondaryHeading from '../PageSecondaryHeading/PageSecondaryHeading';
+import '../UnitName/UnitName.css';
 
 
 const unitNameValues = [
@@ -17,10 +19,29 @@ const unitNameValuesArray = unitNameValues.map(ctrl => (
 
 class UnitName extends Component {
 
+    state = {
+        unitNameSelectValue: 'Temperature'
+    }
+
+
+    unitNameTitleChangedHandler = (event) => {
+        this.setState( {
+            unitNameSelectValue: event.target.options[event.target.selectedIndex].text
+        })
+    }
+
+
     render() {
         
         return (
-            <DropDownMenu dropDownListOptions={unitNameValuesArray} />
+            <div>
+                <DropDownMenu 
+                    dropDownListOptions={unitNameValuesArray} 
+                    unitNameSelected={this.unitNameTitleChangedHandler} 
+                />
+
+                <PageSecondaryHeading unitNameSelected={this.state.unitNameSelectValue} />
+            </div>
         )
     }
 };

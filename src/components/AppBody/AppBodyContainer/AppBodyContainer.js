@@ -1,6 +1,6 @@
 // CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
-import PageTitleHeading from '../PageTitleHeading/PageTitleHeading';
+import PagePrimaryHeading from '../PagePrimaryHeading/PagePrimaryHeading';
 import UnitName from '../UnitName/UnitName';
 
 const appTitle = 'React Unit Converter';
@@ -12,7 +12,7 @@ class AppBodyContainer extends Component {
 
         return (
                 <div>
-                    <PageTitleHeading title={appTitle} />
+                    <PagePrimaryHeading title={appTitle} />
                     <UnitName />
                 </div>    
         )
