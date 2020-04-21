@@ -6,13 +6,14 @@ import classes from '../ResultBox/ResultBox.css';
 const resultBox = (props) => {
 
         return (
-            <input 
+            <input
                 className ={classes.ResultInputBox} 
+                type="number" 
                 placeholder="Enter Number"
-                defaultValue={props.temperatureConversionValue}
+                //defaultValue={props.temperatureConversionValue}
+                value={props.temperatureConversionValue}
                 onChange={props.inputHandler}
             >
-
             </input>  
         );
 }
