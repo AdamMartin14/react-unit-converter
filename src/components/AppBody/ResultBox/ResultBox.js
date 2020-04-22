@@ -9,8 +9,8 @@ const resultBox = (props) => {
             <input
                 className ={classes.ResultInputBox} 
                 type="number" 
-                placeholder="Enter Number"
-                //defaultValue={props.temperatureConversionValue}
+                //placeholder={props.customPlaceholder}
+                placeholder={"Enter a Number"}
                 value={props.temperatureConversionValue}
                 onChange={props.inputHandler}
             >

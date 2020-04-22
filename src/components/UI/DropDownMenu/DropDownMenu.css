@@ -1,4 +1,6 @@
 select {
+    width: 75%;
+    max-width: 300px;
     margin: 20px !important;
     text-align-last:center;
 }

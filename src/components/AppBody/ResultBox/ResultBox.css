@@ -1,6 +1,11 @@
 .ResultInputBox {
+    padding: 4px;
+    margin-top: 12px;
+    margin-bottom: 35px;
+    width: 75%;
+    max-width: 300px;
+    align-self: center;
     text-indent: 10px;
     border: 1px solid grey;
     border-radius: 4px;
-    padding: 4px;
 }

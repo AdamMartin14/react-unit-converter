@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import DropDownMenu from '../../UI/DropDownMenu/DropDownMenu';
 import ResultBox from '../ResultBox/ResultBox'
+import classes from '../FromTo/FromTo.css';
 
 
 const temperatureMeasurementUnits = [
@@ -31,7 +32,7 @@ class FromTo extends Component {
         let value = event.target.value;
 
         let celsiusToFahrenheitResult = value * 9 / 5 + 32;
-        temperatureConversionOutput = celsiusToFahrenheitResult.toFixed(1);
+        temperatureConversionOutput = celsiusToFahrenheitResult.toFixed(0);
 
         // PASS RESULT TO OTHER BOX
         this.setState({fahrenheitToCelsius: value})
@@ -43,7 +44,7 @@ class FromTo extends Component {
         let value = event.target.value;
 
         let fahrenheitToCelsiusResult = (value - 32) * 5 / 9;
-        temperatureConversionOutput = fahrenheitToCelsiusResult.toFixed(1);
+        temperatureConversionOutput = fahrenheitToCelsiusResult.toFixed(0);
 
         // PASS RESULT TO OTHER BOX
         this.setState({celsiusToFahrenheit: value})
@@ -54,9 +55,11 @@ class FromTo extends Component {
     render() {
 
         return (
-            <div>
-                
-                <h2>From:</h2>
+            <div className={classes.FromToContainer}>
+
+                <h3 className={classes.FromToTitle}>Select UNIT NAME Units to Convert From/ To:</h3>
+
+                <h3>From:</h3>
 
                     <DropDownMenu 
                         dropDownListOptions={temperatureMeasurementUnitsArray} 
@@ -67,7 +70,7 @@ class FromTo extends Component {
                         temperatureConversionValue={this.state.fahrenheitToCelsius}
                     />
 
-                <h2>To:</h2>
+                <h3>To:</h3>
 
                     <DropDownMenu 
                         dropDownListOptions={temperatureMeasurementUnitsArray} 
