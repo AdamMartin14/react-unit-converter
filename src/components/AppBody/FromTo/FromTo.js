@@ -1,6 +1,7 @@
 // CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
-import DropDownMenuOptions from '../../UI/DropDownMenuOptions/DropDownMenuOptions';
+import DropDownMenuSelect from '../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
+import DropDownMenuOptions from '../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
 import ResultBox from '../ResultBox/ResultBox'
 import classes from '../FromTo/FromTo.css';
 
@@ -78,22 +79,22 @@ class FromTo extends Component {
 
                 <h3>From:</h3>
 
-                <select>
+                <DropDownMenuSelect>
                     <DropDownMenuOptions 
                         dropDownListOptions={temperatureMeasurementUnitsArray}
                     />
-                </select>
+                </DropDownMenuSelect>
 
                 {fToCResultBox}
 
 
                 <h3>To:</h3>
 
-                <select value={temperatureMeasurementUnitsArray[1].props.value}>
+                <DropDownMenuSelect defaultValue={temperatureMeasurementUnitsArray[1].props.value}>
                     <DropDownMenuOptions 
                         dropDownListOptions={temperatureMeasurementUnitsArray}
                     />
-                </select>
+                </DropDownMenuSelect>
                 
                 {cToFResultBox}
 
