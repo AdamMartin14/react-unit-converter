@@ -1,6 +1,6 @@
 // CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
-import DropDownMenu from '../../UI/DropDownMenu/DropDownMenu';
+import DropDownMenuOptions from '../../UI/DropDownMenuOptions/DropDownMenuOptions';
 import PageSecondaryHeading from '../PageSecondaryHeading/PageSecondaryHeading';
 import classes from '../UnitName/UnitName.css';
 
@@ -35,11 +35,13 @@ class UnitName extends Component {
         
         return (
             <div className={classes.UnitNameContainer}>
-                <DropDownMenu 
-                    dropDownListOptions={unitNameValuesArray} 
-                    unitNameSelected={this.unitNameTitleChangedHandler} 
-                />
 
+                <select onChange={this.unitNameTitleChangedHandler}>
+                    <DropDownMenuOptions 
+                        dropDownListOptions={unitNameValuesArray} 
+                    />
+                </select>
+                
                 <PageSecondaryHeading unitNameSelected={this.state.unitNameSelectValue} />
             </div>
         )

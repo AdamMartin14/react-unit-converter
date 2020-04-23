@@ -1,6 +1,6 @@
 // CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
-import DropDownMenu from '../../UI/DropDownMenu/DropDownMenu';
+import DropDownMenuOptions from '../../UI/DropDownMenuOptions/DropDownMenuOptions';
 import ResultBox from '../ResultBox/ResultBox'
 import classes from '../FromTo/FromTo.css';
 
@@ -46,6 +46,14 @@ class FromTo extends Component {
 
     render() {
 
+        /* NEED CONDITIONAL TO RENDER CORRECT RESULTBOX COMPONENT UPON DROPDOWN SELECTION 
+        OF EITHER 'CELSIUS' OR 'FAHRENHEIT' */
+
+        /* NEED TO EITHER CONDITIONALLY RE-RENDER ENTIRE COMPONENT, OR POSSIBLY JUST SWITCH OUT
+        THE HANDLERS? */
+
+        // MANIPULATE THE INPUT VALUE?  
+
         fToCResultBox = (
             <ResultBox
                 inputHandler={this.celsiusToFahrenheitHandler}
@@ -70,20 +78,24 @@ class FromTo extends Component {
 
                 <h3>From:</h3>
 
-                    <DropDownMenu 
+                <select>
+                    <DropDownMenuOptions 
                         dropDownListOptions={temperatureMeasurementUnitsArray}
                     />
+                </select>
 
-                    {fToCResultBox}
+                {fToCResultBox}
+
 
                 <h3>To:</h3>
 
-                    <DropDownMenu 
+                <select value={temperatureMeasurementUnitsArray[1].props.value}>
+                    <DropDownMenuOptions 
                         dropDownListOptions={temperatureMeasurementUnitsArray}
-                        defaultSelected={temperatureMeasurementUnitsArray[1].props.value} 
                     />
-
-                    {cToFResultBox}
+                </select>
+                
+                {cToFResultBox}
 
             </div>
         )
