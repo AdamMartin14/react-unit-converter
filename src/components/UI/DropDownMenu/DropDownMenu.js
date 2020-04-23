@@ -6,7 +6,7 @@ import '../DropDownMenu/DropDownMenu.css';
 const dropDownMenu = (props) => {
 
         return (
-            <select onChange={props.unitNameSelected}>
+            <select onChange={props.unitNameSelected} value={props.defaultSelected}>
                 {props.dropDownListOptions}
             </select>
         );
