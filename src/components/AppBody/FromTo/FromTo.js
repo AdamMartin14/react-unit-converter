@@ -16,8 +16,22 @@ const temperatureMeasurementUnitsArray = temperatureMeasurementUnits.map(ctrl =>
 ));
 
 let temperatureConversionOutput = '';
-let fToCResultBox = null;
-let cToFResultBox = null;
+
+let resultBox1 = (
+    <ResultBox
+        // inputHandler={this.fahrenheitToCelsiusHandler}
+        // temperatureConversionValue={this.state.celsiusToFahrenheit}
+        customPlaceholder={"Enter a Celsius Value"}
+    /> 
+);
+
+let resultBox2 = (
+    <ResultBox
+        // inputHandler={this.fahrenheitToCelsiusHandler}
+        // temperatureConversionValue={this.state.celsiusToFahrenheit}
+        customPlaceholder={"Enter a Fahrenheit Value"}
+    /> 
+); 
 
 
 
@@ -26,52 +40,107 @@ class FromTo extends Component {
     state = {
         celsiusToFahrenheit: '',
         fahrenheitToCelsius: '',
+        topSelectedDropDownValue: 'celsius',
+        bottomSelectedDropDownValue: 'fahrenheit',
+        dropDownId: 'test-id'
     }
 
     celsiusToFahrenheitHandler = (event) => {
+        console.log('c to f handler fired')
         let value = event.target.value;
+        console.log('c to f input: ' + value);
+
         let celsiusToFahrenheitResult = value * 9 / 5 + 32;
         temperatureConversionOutput = celsiusToFahrenheitResult.toFixed(0);
         this.setState({fahrenheitToCelsius: value})
         this.setState({celsiusToFahrenheit: temperatureConversionOutput});
+
+        console.log('c to f result: ' + temperatureConversionOutput)
     }
 
     fahrenheitToCelsiusHandler = (event) => {
+        console.log('f to c handler fired')
         let value = event.target.value;
+        console.log('f to c input: ' + value);
+
         let fahrenheitToCelsiusResult = (value - 32) * 5 / 9;
         temperatureConversionOutput = fahrenheitToCelsiusResult.toFixed(0);
         this.setState({celsiusToFahrenheit: value})
         this.setState({fahrenheitToCelsius: temperatureConversionOutput});
-    }    
 
+        console.log('f to c result: ' + temperatureConversionOutput)
+    }
+    
+
+    unitDropDownValueHandler = (event) => {
+       
+        if (this.state.topSelectedDropDownValue === 'celsius' && event.target.id === 'drop-down-1') {
+            console.log(this.state.topSelectedDropDownValue)
+            this.setState({topSelectedDropDownValue: 'fahrenheit'})
+
+            console.log('Selected: Fahrenheit in Box 1');
+            console.log('Box 1 State: ' + this.state.topSelectedDropDownValue + ' (first (if) condition)')
+
+            resultBox1 = (
+                <ResultBox
+                    inputHandler={this.fahrenheitToCelsiusHandler}
+                    temperatureConversionValue={this.state.fahrenheitToCelsius}
+                    customPlaceholder={"Enter a Fahrenheit Value"}
+                /> 
+            );
+        }
+        
+        if (this.state.topSelectedDropDownValue === 'fahrenheit' && event.target.id === 'drop-down-1') {
+            this.setState({topSelectedDropDownValue: 'celsius'})
+
+            console.log('Selected: Celsius in Box 1');
+            console.log('Box 1 State: ' + this.state.topSelectedDropDownValue + ' (second (if) condition)')
+
+            resultBox1 = (
+                <ResultBox
+                    inputHandler={this.celsiusToFahrenheitHandler}
+                    temperatureConversionValue={this.state.celsiusToFahrenheit}
+                    customPlaceholder={"Enter a Celsius Value"}
+                /> 
+            );
+        }
+        
+        if (this.state.bottomSelectedDropDownValue === 'fahrenheit' && event.target.id === 'drop-down-2') {
+            this.setState({bottomSelectedDropDownValue: 'celsius'})
+
+            console.log('Selected: Celsius in Box 2');
+            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (first (if) condition)')
+
+            resultBox2 = (
+                <ResultBox
+                    inputHandler={this.celsiusToFahrenheitHandler}
+                    temperatureConversionValue={this.state.celsiusToFahrenheit}
+                    customPlaceholder={"Enter a Celsius Value"}
+                /> 
+            );
+        }
+        
+        if (this.state.bottomSelectedDropDownValue === 'celsius' && event.target.id === 'drop-down-2') {
+            this.setState({bottomSelectedDropDownValue: 'fahrenheit'})
+
+            console.log('Selected: Fahrenheit in Box 2');
+            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (second (if) condition)')
+
+            resultBox2 = (
+                <ResultBox
+                    inputHandler={this.fahrenheitToCelsiusHandler}
+                    temperatureConversionValue={this.state.fahrenheitToCelsius}
+                    customPlaceholder={"Enter a Fahrenheit Value"}
+                />
+            );
+        } 
+
+    }
+
+            
 
     render() {
-
-        /* NEED CONDITIONAL TO RENDER CORRECT RESULTBOX COMPONENT UPON DROPDOWN SELECTION 
-        OF EITHER 'CELSIUS' OR 'FAHRENHEIT' */
-
-        /* NEED TO EITHER CONDITIONALLY RE-RENDER ENTIRE COMPONENT, OR POSSIBLY JUST SWITCH OUT
-        THE HANDLERS? */
-
-        // MANIPULATE THE INPUT VALUE?  
-
-        fToCResultBox = (
-            <ResultBox
-                inputHandler={this.celsiusToFahrenheitHandler}
-                temperatureConversionValue={this.state.fahrenheitToCelsius}
-                customPlaceholder={"Enter a Celsius Value"}
-            /> 
-        );
-
-        cToFResultBox = (
-            <ResultBox
-                inputHandler={this.fahrenheitToCelsiusHandler}
-                temperatureConversionValue={this.state.celsiusToFahrenheit}
-                customPlaceholder={"Enter a Fahrenheit Value"}
-            /> 
-        );
-
-
+        
         return (
             <div className={classes.FromToContainer}>
 
@@ -79,24 +148,33 @@ class FromTo extends Component {
 
                 <h3>From:</h3>
 
-                <DropDownMenuSelect>
+                <DropDownMenuSelect 
+                    changed={this.unitDropDownValueHandler}
+                    id={'drop-down-1'}
+                >
+
                     <DropDownMenuOptions 
                         dropDownListOptions={temperatureMeasurementUnitsArray}
                     />
                 </DropDownMenuSelect>
 
-                {fToCResultBox}
+                {resultBox1}
 
 
                 <h3>To:</h3>
 
-                <DropDownMenuSelect defaultValue={temperatureMeasurementUnitsArray[1].props.value}>
+                <DropDownMenuSelect
+                    defaultValue={temperatureMeasurementUnitsArray[1].props.value}
+                    changed={this.unitDropDownValueHandler}
+                    id={'drop-down-2'}
+                >
+
                     <DropDownMenuOptions 
                         dropDownListOptions={temperatureMeasurementUnitsArray}
                     />
                 </DropDownMenuSelect>
                 
-                {cToFResultBox}
+                {resultBox2}
 
             </div>
         )

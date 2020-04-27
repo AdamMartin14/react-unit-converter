@@ -6,7 +6,7 @@ const selectTest = (props) => {
 
     return (
 
-        <select onChange={props.changed} value={props.defaultValue}>
+        <select onChange={props.changed} defaultValue={props.defaultValue} id={props.id}>
 
             {/* 'props.children' enables this component to wrap the 'DropDownMenuOptions' component  */}
             {props.children}
