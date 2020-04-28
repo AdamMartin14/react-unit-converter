@@ -17,21 +17,8 @@ const temperatureMeasurementUnitsArray = temperatureMeasurementUnits.map(ctrl =>
 
 let temperatureConversionOutput = '';
 
-let resultBox1 = (
-    <ResultBox
-        // inputHandler={this.fahrenheitToCelsiusHandler}
-        // temperatureConversionValue={this.state.celsiusToFahrenheit}
-        customPlaceholder={"Enter a Celsius Value"}
-    /> 
-);
-
-let resultBox2 = (
-    <ResultBox
-        // inputHandler={this.fahrenheitToCelsiusHandler}
-        // temperatureConversionValue={this.state.celsiusToFahrenheit}
-        customPlaceholder={"Enter a Fahrenheit Value"}
-    /> 
-); 
+let resultBox1 = '';
+let resultBox2 = '';
 
 
 
@@ -42,9 +29,9 @@ class FromTo extends Component {
         fahrenheitToCelsius: '',
         topSelectedDropDownValue: 'celsius',
         bottomSelectedDropDownValue: 'fahrenheit',
-        dropDownId: 'test-id'
     }
 
+    
     celsiusToFahrenheitHandler = (event) => {
         console.log('c to f handler fired')
         let value = event.target.value;
@@ -71,8 +58,9 @@ class FromTo extends Component {
         console.log('f to c result: ' + temperatureConversionOutput)
     }
     
-
     unitDropDownValueHandler = (event) => {
+
+        console.log('Unit Drop Down Handler Fired')
        
         if (this.state.topSelectedDropDownValue === 'celsius' && event.target.id === 'drop-down-1') {
             console.log(this.state.topSelectedDropDownValue)
@@ -134,14 +122,35 @@ class FromTo extends Component {
                 />
             );
         } 
-
     }
 
-            
-
+    
+    
     render() {
         
+        if (this.state.topSelectedDropDownValue === 'celsius') {
+            resultBox1 = (
+                <ResultBox
+                    inputHandler={this.celsiusToFahrenheitHandler}
+                    temperatureConversionValue={this.state.celsiusToFahrenheit}
+                    customPlaceholder={"Enter a Celsius Value"}
+                /> 
+            );
+
+        }
+
+        if (this.state.bottomSelectedDropDownValue === 'fahrenheit') {
+            resultBox2 = (
+                <ResultBox
+                    inputHandler={this.fahrenheitToCelsiusHandler}
+                    temperatureConversionValue={this.state.fahrenheitToCelsius}
+                    customPlaceholder={"Enter a Fahrenheit Value"}
+                /> 
+            ); 
+        }
+    
         return (
+            
             <div className={classes.FromToContainer}>
 
                 <h3 className={classes.FromToTitle}>Select UNIT NAME Units to Convert From/ To:</h3>
