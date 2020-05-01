@@ -59,67 +59,47 @@ class FromTo extends Component {
         console.log('f to c result: ' + temperatureConversionOutput)
     }
     
+
     unitDropDownValueHandler = (event) => {
 
-        if (this.state.topSelectedDropDownValue === 'celsius' && event.target.id === 'drop-down-1') {
+        // BOX 1 STARTS AS CELSIUS
+
+        // SET BOX 1 TO FAHRENHEIT
+        if (event.target.id === 'drop-down-1' && event.target.value === 'fahrenheit') {
             this.setState({topSelectedDropDownValue: 'fahrenheit'})
 
             console.log('Selected: Fahrenheit in Box 1');
             console.log('Box 1 State: ' + this.state.topSelectedDropDownValue + ' (first (if) condition)')
-
-            resultBox1 = (
-                <ResultBox
-                    inputHandler={this.fahrenheitToCelsiusHandler}
-                    temperatureConversionValue={this.state.celsiusToFahrenheit}
-                    customPlaceholder={"Enter a Fahrenheit Value"}
-                /> 
-            );
-        }
+        } 
         
-        if (this.state.topSelectedDropDownValue === 'fahrenheit' && event.target.id === 'drop-down-1') {
+        // SET BOX 1 BACK TO CELSIUS
+        if (event.target.id === 'drop-down-1' && event.target.value === 'celsius') {
             this.setState({topSelectedDropDownValue: 'celsius'})
 
             console.log('Selected: Celsius in Box 1');
-            console.log('Box 1 State: ' + this.state.topSelectedDropDownValue + ' (second (if) condition)')
+            console.log('Box 1 State: ' + this.state.topSelectedDropDownValue + ' (second (if) condition)');
 
-            resultBox1 = (
-                <ResultBox
-                    inputHandler={this.celsiusToFahrenheitHandler}
-                    temperatureConversionValue={this.state.fahrenheitToCelsius}
-                    customPlaceholder={"Enter a Celsius Value"}
-                /> 
-            );
         }
+
         
-        if (this.state.bottomSelectedDropDownValue === 'fahrenheit' && event.target.id === 'drop-down-2') {
+        // BOX 2 STARTS AS FAHRENHEIT
+
+        // SET BOX 2 TO CELSIUS
+        if (event.target.id === 'drop-down-2' && event.target.value === 'celsius') {
             this.setState({bottomSelectedDropDownValue: 'celsius'})
 
             console.log('Selected: Celsius in Box 2');
-            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (first (if) condition)')
-
-            resultBox2 = (
-                <ResultBox
-                    inputHandler={this.celsiusToFahrenheitHandler}
-                    temperatureConversionValue={this.state.fahrenheitToCelsius}
-                    customPlaceholder={"Enter a Celsius Value"}
-                /> 
-            );
+            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (first (if) condition)');
         }
         
-        if (this.state.bottomSelectedDropDownValue === 'celsius' && event.target.id === 'drop-down-2') {
+        // SET BOX 2 BACK TO FAHRENHEIT
+        if (event.target.id === 'drop-down-2' && event.target.value === 'fahrenheit') {
             this.setState({bottomSelectedDropDownValue: 'fahrenheit'})
 
             console.log('Selected: Fahrenheit in Box 2');
-            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (second (if) condition)')
-
-            resultBox2 = (
-                <ResultBox
-                    inputHandler={this.fahrenheitToCelsiusHandler}
-                    temperatureConversionValue={this.state.celsiusToFahrenheit}
-                    customPlaceholder={"Enter a Fahrenheit Value"}
-                />
-            );
+            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (second (if) condition)');
         } 
+
     }
 
     
@@ -127,6 +107,7 @@ class FromTo extends Component {
     render() {
         
         if (this.state.topSelectedDropDownValue === 'celsius') {
+
             resultBox1 = (
                 <ResultBox
                     inputHandler={this.celsiusToFahrenheitHandler}
@@ -134,13 +115,15 @@ class FromTo extends Component {
                     customPlaceholder={"Enter a Celsius Value"}
                 /> 
             );
-
-        } else {
+        } 
+        
+        else {
+            
             resultBox1 = (
                 <ResultBox
                     inputHandler={this.fahrenheitToCelsiusHandler}
                     temperatureConversionValue={this.state.celsiusToFahrenheit}
-                    customPlaceholder={"Enter a f Value"}
+                    customPlaceholder={"Enter a Fahrenheit Value"}
                 /> 
             );
         }
@@ -154,17 +137,21 @@ class FromTo extends Component {
                     customPlaceholder={"Enter a Fahrenheit Value"}
                 /> 
             ); 
-        } else {
+        } 
+        
+        else {
+            
             resultBox2 = (
                 <ResultBox
                     inputHandler={this.celsiusToFahrenheitHandler}
                     temperatureConversionValue={this.state.fahrenheitToCelsius}
-                    customPlaceholder={"Enter a c Value"}
+                    customPlaceholder={"Enter a Celsius Value"}
                 /> 
             ); 
-
         }
     
+
+
         return (
             
             <div className={classes.FromToContainer}>
