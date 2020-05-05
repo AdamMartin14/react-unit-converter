@@ -5,7 +5,9 @@ import classes from './PagePrimaryHeading.css'
 const pagePrimaryHeading = (props) => (
 
     <div className={classes.PagePrimaryHeadingContainer}>
-        <h1>{props.title}</h1>
+        <h1>
+            {props.headingText}
+        </h1>
     </div>
 
 );

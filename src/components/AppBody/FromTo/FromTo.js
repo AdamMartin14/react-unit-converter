@@ -2,7 +2,8 @@
 import React, {Component} from 'react';
 import DropDownMenuSelect from '../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
 import DropDownMenuOptions from '../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
-import ResultBox from '../ResultBox/ResultBox'
+import ResultBox from '../ResultBox/ResultBox';
+import PageTertiaryHeading from '../PageTertiaryHeading/PageTertiaryHeading';
 import classes from '../FromTo/FromTo.css';
 
 
@@ -111,7 +112,7 @@ class FromTo extends Component {
             resultBox1 = (
                 <ResultBox
                     inputHandler={this.celsiusToFahrenheitHandler}
-                    temperatureConversionValue={this.state.fahrenheitToCelsius}
+                    conversionValue={this.state.fahrenheitToCelsius}
                     customPlaceholder={"Enter a Celsius Value"}
                 /> 
             );
@@ -122,7 +123,7 @@ class FromTo extends Component {
             resultBox1 = (
                 <ResultBox
                     inputHandler={this.fahrenheitToCelsiusHandler}
-                    temperatureConversionValue={this.state.celsiusToFahrenheit}
+                    conversionValue={this.state.celsiusToFahrenheit}
                     customPlaceholder={"Enter a Fahrenheit Value"}
                 /> 
             );
@@ -133,7 +134,7 @@ class FromTo extends Component {
             resultBox2 = (
                 <ResultBox
                     inputHandler={this.fahrenheitToCelsiusHandler}
-                    temperatureConversionValue={this.state.celsiusToFahrenheit}
+                    conversionValue={this.state.celsiusToFahrenheit}
                     customPlaceholder={"Enter a Fahrenheit Value"}
                 /> 
             ); 
@@ -144,7 +145,7 @@ class FromTo extends Component {
             resultBox2 = (
                 <ResultBox
                     inputHandler={this.celsiusToFahrenheitHandler}
-                    temperatureConversionValue={this.state.fahrenheitToCelsius}
+                    conversionValue={this.state.fahrenheitToCelsius}
                     customPlaceholder={"Enter a Celsius Value"}
                 /> 
             ); 
@@ -156,9 +157,7 @@ class FromTo extends Component {
             
             <div className={classes.FromToContainer}>
 
-                <h3 className={classes.FromToTitle}>Select UNIT NAME Units to Convert From/ To:</h3>
-
-                <h3>From:</h3>
+                <PageTertiaryHeading headingText={'From:'} />
 
                 <DropDownMenuSelect 
                     changed={this.unitDropDownValueHandler}
@@ -173,7 +172,7 @@ class FromTo extends Component {
                 {resultBox1}
 
 
-                <h3>To:</h3>
+                <PageTertiaryHeading headingText={'To:'} />
 
                 <DropDownMenuSelect
                     defaultValue={temperatureMeasurementUnitsArray[1].props.value}

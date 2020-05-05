@@ -6,11 +6,9 @@ import classes from './PageSecondaryHeading.css'
 const pageSecondaryHeading = (props) => (
 
     <div className={classes.PageSecondaryHeadingContainer}>
-
         <h2>
-            {props.unitNameSelected}
+            {props.headingText}
         </h2>
-
     </div>
 
 );

@@ -15,9 +15,16 @@ class AppBodyContainer extends Component {
         return (
                 <div className={classes.AppBodyContainer}>
 
-                    <PagePrimaryHeading title={appTitle} />
+                    <PagePrimaryHeading headingText={appTitle} />
 
                     <UnitName />
+
+                    {/* Add conditional to render different unit FromTo Components on selection of 
+                    UnitName dropdown */}
+
+                    {/* FromToContainer component (props.children within the tags, and different unit 
+                    converters + conditionals to display them within the actual component file - 
+                    avoids having logig in here - keeps this as a container). */}
 
                     <FromTo />
 

@@ -3,5 +3,9 @@ div {
 }
 
 .UnitNameContainer {
+    margin-bottom: 12px;
+}
+
+.UnitNameTertiaryHeadingContainer {
     margin-bottom: 40px;
 }
