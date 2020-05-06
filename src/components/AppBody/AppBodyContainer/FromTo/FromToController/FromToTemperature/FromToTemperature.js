@@ -1,10 +1,12 @@
 // CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
-import DropDownMenuSelect from '../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
-import DropDownMenuOptions from '../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
-import ResultBox from '../ResultBox/ResultBox';
-import PageTertiaryHeading from '../PageTertiaryHeading/PageTertiaryHeading';
-import classes from '../FromTo/FromTo.css';
+import DropDownMenuSelect from '../../../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
+import DropDownMenuOptions from '../../../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
+import ResultBox from '../../../../ResultBox/ResultBox';
+import PageTertiaryHeading from '../../../../PageTertiaryHeading/PageTertiaryHeading';
+
+// CHANGE TO SINGLE GLOBAL CSS FILE SOMEHOW
+import classes from '../FromToTemperature/FromToTemperature.css';
 
 
 const temperatureMeasurementUnits = [
@@ -24,7 +26,7 @@ let inputValue = '';
 
 
 
-class FromTo extends Component {
+class FromToTemperature extends Component {
 
     state = {
         celsiusToFahrenheit: '',
@@ -193,4 +195,4 @@ class FromTo extends Component {
 };
 
 
-export default FromTo;
+export default FromToTemperature;

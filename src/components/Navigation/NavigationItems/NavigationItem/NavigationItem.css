@@ -9,7 +9,9 @@
 }
 
 .NavigationItem a:hover {
+    color: #FFFFFF;
     opacity: 0.8;
+    text-decoration: none;
 }
 
 @media(min-width: 540px) {
