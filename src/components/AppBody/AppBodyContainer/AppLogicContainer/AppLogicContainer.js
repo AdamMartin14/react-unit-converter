@@ -42,7 +42,38 @@ class AppLogicContainer extends Component {
 
     render() {
 
+        let selectedFromToComponent = null
+
+        switch(this.state.unitNameSelectValue) {
+
+            case('Temperature'):
+                selectedFromToComponent = <FromToTemperature />
+                break;
+
+            case('Weight'):
+                selectedFromToComponent = (
+                    <div>FromTo WEIGHT</div>  
+                );
+            break;
+
+            case('Distance'):
+                selectedFromToComponent = (
+                    <div>FromTo DISTANCE</div>  
+                );
+            break;
+
+            case('Speed'):
+                selectedFromToComponent = (
+                    <div>FromTo SPEED</div>  
+                );
+            break;
+
+                default:
+                    selectedFromToComponent = null;
+        }
+
         return (
+
             <div>
 
                 <div className={classes.UnitNameContainer}>
@@ -67,15 +98,11 @@ class AppLogicContainer extends Component {
 
 
                 <div>
-                    <FromToTemperature />
-                    
-                    <div>FromTo WEIGHT</div>  
-                    <div>FromTo DISTANCE</div>  
-                    <div>FromTo SPEED</div>  
-                    
+                    {selectedFromToComponent}
                 </div>
 
             </div>  
+
         );
 
     }       
