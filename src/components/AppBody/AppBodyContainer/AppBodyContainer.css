@@ -3,7 +3,5 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin-top: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin: 20px 30px;
 }

@@ -4,9 +4,7 @@ import DropDownMenuSelect from '../../../../../UI/DropDownMenu/DropDownMenuSelec
 import DropDownMenuOptions from '../../../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
 import ResultBox from '../../../../ResultBox/ResultBox';
 import PageTertiaryHeading from '../../../../PageTertiaryHeading/PageTertiaryHeading';
-
-// CHANGE TO SINGLE GLOBAL CSS FILE SOMEHOW
-import classes from '../FromToTemperature/FromToTemperature.css';
+import classes from '../../FromTo/FromTo.css';
 
 
 const temperatureMeasurementUnits = [
