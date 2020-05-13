@@ -7,7 +7,9 @@ const resultBox = (props) => {
 
         return (
             <input
-                className ={classes.ResultInputBox} 
+                className ={classes.ResultInputBox}
+                id={props.customID}
+                name={props.customName} 
                 type="number" 
                 placeholder={props.customPlaceholder}
                 value={props.conversionValue}

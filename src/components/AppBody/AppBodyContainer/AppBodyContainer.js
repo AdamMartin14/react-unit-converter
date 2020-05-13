@@ -1,5 +1,5 @@
-// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
-import React, {Component} from 'react';
+// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
+import React from 'react';
 import PagePrimaryHeading from '../PagePrimaryHeading/PagePrimaryHeading';
 import AppLogicContainer from './AppLogicContainer/AppLogicContainer';
 import classes from '../AppBodyContainer/AppBodyContainer.css';
@@ -7,20 +7,20 @@ import classes from '../AppBodyContainer/AppBodyContainer.css';
 
 const appTitle = 'React Unit Converter';
 
-class AppBodyContainer extends Component {
 
-    render() {
+const appBodyContainer = (props) => (
 
-        return (
-                <div className={classes.AppBodyContainer}>
+    <div className={classes.AppBodyContainer}>
 
-                    <PagePrimaryHeading headingText={appTitle} />
+        <PagePrimaryHeading headingText={appTitle} />
 
-                    <AppLogicContainer />
+        <AppLogicContainer />
 
-                </div>    
-        )
-    }   
-};
+    </div>    
+    
+);
 
-export default AppBodyContainer;
+export default appBodyContainer;
+
+
+

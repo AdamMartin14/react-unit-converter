@@ -22,6 +22,9 @@ let resultBox1 = '';
 let resultBox2 = '';
 let inputValue = '';
 
+var convert = require('convert-units')
+
+
 
 
 class FromToTemperature extends Component {
@@ -34,32 +37,35 @@ class FromToTemperature extends Component {
     }
 
     
-    celsiusToFahrenheitHandler = (event) => {
-        console.log('c to f handler fired')
-        inputValue = event.target.value;
-        console.log('c to f input: ' + inputValue);
+    temperatureConversionHandler = (event) => {
 
-        let celsiusToFahrenheitResult = inputValue * 9 / 5 + 32;
-        temperatureConversionOutput = celsiusToFahrenheitResult.toFixed(0);
-        this.setState({fahrenheitToCelsius: inputValue})
-        this.setState({celsiusToFahrenheit: temperatureConversionOutput});
+        if (event.target.name === 'result-box-celsius') {
+            console.log('c to f handler fired')
+            inputValue = event.target.value;
+            console.log('c to f input: ' + inputValue);
 
-        console.log('c to f result: ' + temperatureConversionOutput)
+            let celsiusToFahrenheitResult = convert(inputValue).from('C').to('F');
+            temperatureConversionOutput = celsiusToFahrenheitResult.toFixed(0);
+            this.setState({fahrenheitToCelsius: inputValue})
+            this.setState({celsiusToFahrenheit: temperatureConversionOutput});
+
+            console.log('c to f result: ' + temperatureConversionOutput);
+        }
+
+        if (event.target.name === 'result-box-fahrenheit' ) {
+            console.log('f to c handler fired');
+            inputValue = event.target.value;
+            console.log('f to c input: ' + inputValue);
+
+            let fahrenheitToCelsiusResult = convert(inputValue).from('F').to('C');
+            temperatureConversionOutput = fahrenheitToCelsiusResult.toFixed(0);
+            this.setState({celsiusToFahrenheit: inputValue})
+            this.setState({fahrenheitToCelsius: temperatureConversionOutput});
+
+            console.log('f to c result: ' + temperatureConversionOutput)   
+        }
     }
 
-    fahrenheitToCelsiusHandler = (event) => {
-        console.log('f to c handler fired')
-        inputValue = event.target.value;
-        console.log('f to c input: ' + inputValue);
-
-        let fahrenheitToCelsiusResult = (inputValue - 32) * 5 / 9;
-        temperatureConversionOutput = fahrenheitToCelsiusResult.toFixed(0);
-        this.setState({celsiusToFahrenheit: inputValue})
-        this.setState({fahrenheitToCelsius: temperatureConversionOutput});
-
-        console.log('f to c result: ' + temperatureConversionOutput)
-    }
-    
 
     unitDropDownValueHandler = (event) => {
 
@@ -111,8 +117,10 @@ class FromToTemperature extends Component {
 
             resultBox1 = (
                 <ResultBox
-                    inputHandler={this.celsiusToFahrenheitHandler}
+                    inputHandler={this.temperatureConversionHandler}
                     conversionValue={this.state.fahrenheitToCelsius}
+                    customID={'result-box-1'}
+                    customName={'result-box-celsius'}
                     customPlaceholder={"Enter a Celsius Value"}
                 /> 
             );
@@ -122,8 +130,10 @@ class FromToTemperature extends Component {
             
             resultBox1 = (
                 <ResultBox
-                    inputHandler={this.fahrenheitToCelsiusHandler}
+                    inputHandler={this.temperatureConversionHandler}
                     conversionValue={this.state.celsiusToFahrenheit}
+                    customID={'result-box-1'}
+                    customName={'result-box-fahrenheit'}
                     customPlaceholder={"Enter a Fahrenheit Value"}
                 /> 
             );
@@ -133,8 +143,10 @@ class FromToTemperature extends Component {
         if (this.state.bottomSelectedDropDownValue === 'fahrenheit') {
             resultBox2 = (
                 <ResultBox
-                    inputHandler={this.fahrenheitToCelsiusHandler}
+                    inputHandler={this.temperatureConversionHandler}
                     conversionValue={this.state.celsiusToFahrenheit}
+                    customID={'result-box-2'}
+                    customName={'result-box-fahrenheit'}
                     customPlaceholder={"Enter a Fahrenheit Value"}
                 /> 
             ); 
@@ -144,8 +156,10 @@ class FromToTemperature extends Component {
             
             resultBox2 = (
                 <ResultBox
-                    inputHandler={this.celsiusToFahrenheitHandler}
+                    inputHandler={this.temperatureConversionHandler}
                     conversionValue={this.state.fahrenheitToCelsius}
+                    customID={'result-box-2'}
+                    customName={'result-box-celsius'}
                     customPlaceholder={"Enter a Celsius Value"}
                 /> 
             ); 

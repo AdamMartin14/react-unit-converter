@@ -1,6 +1,8 @@
 // FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
 import React, {Component} from 'react';
 import FromToTemperature from '../AppLogicContainer/FromTo/FromToTemperature/FromToTemperature';
+import FromToWeight from '../AppLogicContainer/FromTo/FromToWeight/FromToWeight';
+import FromToLength from '../AppLogicContainer/FromTo/FromToLength/FromToLength';
 import PageSecondaryHeading from '../../PageSecondaryHeading/PageSecondaryHeading';
 import PageTertiaryHeading from '../../PageTertiaryHeading/PageTertiaryHeading'; 
 import DropDownMenuSelect from '../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
@@ -8,15 +10,11 @@ import DropDownMenuOptions from '../../../UI/DropDownMenu/DropDownMenuOptions/Dr
 import classes from '../AppLogicContainer/AppLogicContainer.css';
 
 
-/* STEP 1 - Add conditional logic (switch statement?) to render different unit FromTo 
-Components on selection of UnitName dropdown. */
-
-// STEP 2 - Add conversion logic to each new FromTo Component.
 
 const unitNameValues = [
     { value: 'temperature', label: 'Temperature' },
     { value: 'weight', label: 'Weight' },
-    { value: 'distance', label: 'Distance' },
+    { value: 'length', label: 'Length' },
     { value: 'speed', label: 'Speed' },
  ];
 
@@ -29,7 +27,7 @@ const unitNameValuesArray = unitNameValues.map(ctrl => (
 class AppLogicContainer extends Component {
 
     state = {
-        unitNameSelectValue: 'Temperature'
+        unitNameSelectValue: 'Length'
     }
 
 
@@ -44,29 +42,25 @@ class AppLogicContainer extends Component {
 
         let selectedFromToComponent = null
 
-        switch(this.state.unitNameSelectValue) {
+        switch (this.state.unitNameSelectValue) {
 
             case('Temperature'):
                 selectedFromToComponent = <FromToTemperature />
                 break;
 
             case('Weight'):
-                selectedFromToComponent = (
-                    <div>FromTo WEIGHT</div>  
-                );
-            break;
+                selectedFromToComponent = <FromToWeight />
+                break;
 
-            case('Distance'):
-                selectedFromToComponent = (
-                    <div>FromTo DISTANCE</div>  
-                );
-            break;
+            case('Length'):
+                selectedFromToComponent = <FromToLength />
+                break;
 
             case('Speed'):
                 selectedFromToComponent = (
                     <div>FromTo SPEED</div>  
                 );
-            break;
+                break;
 
                 default:
                     selectedFromToComponent = null;
