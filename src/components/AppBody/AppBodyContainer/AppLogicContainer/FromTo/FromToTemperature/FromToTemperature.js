@@ -16,11 +16,14 @@ const temperatureMeasurementUnitsArray = temperatureMeasurementUnits.map(ctrl =>
     <option value={ctrl.value}>{ctrl.label}</option>
 ));
 
-let temperatureConversionOutput = '';
 
 let resultBox1 = '';
 let resultBox2 = '';
+let resultBoxName = '';
+let resultBoxId = '';
+let unitDropDownValue = '';
 let inputValue = '';
+let conversionResult = '';
 
 var convert = require('convert-units')
 
@@ -30,8 +33,8 @@ var convert = require('convert-units')
 class FromToTemperature extends Component {
 
     state = {
-        celsiusToFahrenheit: '',
-        fahrenheitToCelsius: '',
+        resultBoxOneState: '',
+        resultBoxTwoState: '',
         topSelectedDropDownValue: 'celsius',
         bottomSelectedDropDownValue: 'fahrenheit',
     }
@@ -39,134 +42,102 @@ class FromToTemperature extends Component {
     
     temperatureConversionHandler = (event) => {
 
-        if (event.target.name === 'result-box-celsius') {
+        inputValue = event.target.value;
+        resultBoxName = event.target.name;
+        resultBoxId = event.target.id;
+
+        
+        if (resultBoxId === 'result-box-celsius') {
             console.log('c to f handler fired')
-            inputValue = event.target.value;
             console.log('c to f input: ' + inputValue);
+            conversionResult = convert(inputValue).from('C').to('F');
 
-            let celsiusToFahrenheitResult = convert(inputValue).from('C').to('F');
-            temperatureConversionOutput = celsiusToFahrenheitResult.toFixed(0);
-            this.setState({fahrenheitToCelsius: inputValue})
-            this.setState({celsiusToFahrenheit: temperatureConversionOutput});
+            if (this.state.bottomSelectedDropDownValue === 'fahrenheit') {
+                this.setState({resultBoxOneState: inputValue});
+                this.setState({resultBoxTwoState: conversionResult});
 
-            console.log('c to f result: ' + temperatureConversionOutput);
+            } else {
+                this.setState({resultBoxTwoState: inputValue});
+                this.setState({resultBoxOneState: conversionResult});
+            }
+            
+            console.log('c to f result: ' + conversionResult);
         }
 
-        if (event.target.name === 'result-box-fahrenheit' ) {
-            console.log('f to c handler fired');
-            inputValue = event.target.value;
+
+        if (resultBoxId === 'result-box-fahrenheit') {
+            console.log('f to c handler fired')
             console.log('f to c input: ' + inputValue);
+            conversionResult = convert(inputValue).from('F').to('C');
 
-            let fahrenheitToCelsiusResult = convert(inputValue).from('F').to('C');
-            temperatureConversionOutput = fahrenheitToCelsiusResult.toFixed(0);
-            this.setState({celsiusToFahrenheit: inputValue})
-            this.setState({fahrenheitToCelsius: temperatureConversionOutput});
+            if (this.state.bottomSelectedDropDownValue === 'fahrenheit') {
+                this.setState({resultBoxTwoState: inputValue});
+                this.setState({resultBoxOneState: conversionResult});
 
-            console.log('f to c result: ' + temperatureConversionOutput)   
+            } else {
+                this.setState({resultBoxOneState: inputValue});
+                this.setState({resultBoxTwoState: conversionResult});
+            }
+            
+            console.log('f to c result: ' + conversionResult);
         }
+
+
+        if (this.state.topSelectedDropDownValue === this.state.bottomSelectedDropDownValue) {
+            this.setState({resultBoxOneState: inputValue})
+            this.setState({resultBoxTwoState: inputValue})
+        }
+
     }
 
 
     unitDropDownValueHandler = (event) => {
 
-        // BOX 1 STARTS AS CELSIUS
+        unitDropDownValue = event.target.value;
 
-        // SET BOX 1 TO FAHRENHEIT
-        if (event.target.id === 'drop-down-1' && event.target.value === 'fahrenheit') {
-            this.setState({topSelectedDropDownValue: 'fahrenheit'})
 
-            console.log('Selected: Fahrenheit in Box 1');
-            console.log('Box 1 State: ' + this.state.topSelectedDropDownValue + ' (first (if) condition)')
-        } 
-        
-        // SET BOX 1 BACK TO CELSIUS
-        if (event.target.id === 'drop-down-1' && event.target.value === 'celsius') {
-            this.setState({topSelectedDropDownValue: 'celsius'})
+        this.setState({resultBoxOneState: ''})
+        this.setState({resultBoxTwoState: ''})
 
-            console.log('Selected: Celsius in Box 1');
-            console.log('Box 1 State: ' + this.state.topSelectedDropDownValue + ' (second (if) condition)');
-
-        }
-
-        
-        // BOX 2 STARTS AS FAHRENHEIT
-
-        // SET BOX 2 TO CELSIUS
-        if (event.target.id === 'drop-down-2' && event.target.value === 'celsius') {
-            this.setState({bottomSelectedDropDownValue: 'celsius'})
-
-            console.log('Selected: Celsius in Box 2');
-            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (first (if) condition)');
+         // TOP DROP-DOWN
+         if (event.target.id === 'drop-down-1') {
+            this.setState({topSelectedDropDownValue: unitDropDownValue})
+            console.log('Selected: ' + unitDropDownValue + ' in Box 1');
         }
         
-        // SET BOX 2 BACK TO FAHRENHEIT
-        if (event.target.id === 'drop-down-2' && event.target.value === 'fahrenheit') {
-            this.setState({bottomSelectedDropDownValue: 'fahrenheit'})
-
-            console.log('Selected: Fahrenheit in Box 2');
-            console.log('Box 2 State: ' + this.state.bottomSelectedDropDownValue + ' (second (if) condition)');
-        } 
-
+        // BOTTOM DROP-DOWN
+        if (event.target.id === 'drop-down-2') {
+            this.setState({bottomSelectedDropDownValue: unitDropDownValue})
+            console.log('Selected: ' + unitDropDownValue + ' in Box 2');
+        }
     }
 
     
     
     render() {
-        
-        if (this.state.topSelectedDropDownValue === 'celsius') {
 
-            resultBox1 = (
-                <ResultBox
-                    inputHandler={this.temperatureConversionHandler}
-                    conversionValue={this.state.fahrenheitToCelsius}
-                    customID={'result-box-1'}
-                    customName={'result-box-celsius'}
-                    customPlaceholder={"Enter a Celsius Value"}
-                /> 
-            );
-        } 
-        
-        else {
-            
-            resultBox1 = (
-                <ResultBox
-                    inputHandler={this.temperatureConversionHandler}
-                    conversionValue={this.state.celsiusToFahrenheit}
-                    customID={'result-box-1'}
-                    customName={'result-box-fahrenheit'}
-                    customPlaceholder={"Enter a Fahrenheit Value"}
-                /> 
-            );
-        }
+        resultBox1 = (
+            <ResultBox
+                inputHandler={this.temperatureConversionHandler}
+                conversionValue={this.state.resultBoxOneState}
+                customID={'result-box-' + this.state.topSelectedDropDownValue}
+                //customName={'result-box-' + this.state.topSelectedDropDownValue}
+                customPlaceholder={'Enter a ' + this.state.topSelectedDropDownValue + ' Value'}
+            /> 
+        );
 
-
-        if (this.state.bottomSelectedDropDownValue === 'fahrenheit') {
-            resultBox2 = (
-                <ResultBox
-                    inputHandler={this.temperatureConversionHandler}
-                    conversionValue={this.state.celsiusToFahrenheit}
-                    customID={'result-box-2'}
-                    customName={'result-box-fahrenheit'}
-                    customPlaceholder={"Enter a Fahrenheit Value"}
-                /> 
-            ); 
-        } 
+        resultBox2 = (
+            <ResultBox
+                inputHandler={this.temperatureConversionHandler}
+                conversionValue={this.state.resultBoxTwoState}
+                customID={'result-box-' + this.state.bottomSelectedDropDownValue}
+                //customName={'result-box-' + this.state.bottomSelectedDropDownValue}
+                customPlaceholder={'Enter a ' + this.state.bottomSelectedDropDownValue + ' Value'}
+            /> 
+        ); 
         
-        else {
-            
-            resultBox2 = (
-                <ResultBox
-                    inputHandler={this.temperatureConversionHandler}
-                    conversionValue={this.state.fahrenheitToCelsius}
-                    customID={'result-box-2'}
-                    customName={'result-box-celsius'}
-                    customPlaceholder={"Enter a Celsius Value"}
-                /> 
-            ); 
-        }
+      
     
-
-
         return (
             
             <div className={classes.FromToContainer}>

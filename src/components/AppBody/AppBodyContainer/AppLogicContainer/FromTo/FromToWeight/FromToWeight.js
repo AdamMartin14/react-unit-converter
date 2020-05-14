@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import DropDownMenuSelect from '../../../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
 import DropDownMenuOptions from '../../../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
-import ResultBox from '../../../../ResultBox/ResultBox';
+//import ResultBox from '../../../../ResultBox/ResultBox';
 import PageTertiaryHeading from '../../../../PageTertiaryHeading/PageTertiaryHeading';
 import classes from '../../FromTo/FromTo.css';
 
@@ -22,11 +22,11 @@ const weightMeasurementUnitsArray = weightMeasurementUnits.map(ctrl => (
     <option value={ctrl.value}>{ctrl.label}</option>
 ));
 
-let weightConversionOutput = '';
+//let weightConversionOutput = '';
 
 let resultBox1 = '';
 let resultBox2 = '';
-let inputValue = '';
+//let inputValue = '';
 
 
 
