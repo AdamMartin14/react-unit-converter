@@ -44,6 +44,9 @@ class FromToLength extends Component {
     }
 
 
+    /* THIS WILL NOW BE A SINGLE HANDLER DUE TO REFACTORING IN 'RENDER METHOD' 
+    (ALL RESULTBOX COMPONENTS WILL NOW UTILISE THIS HANDLER ONCHANGE) */
+    
     millimeterConversionHandler = (event) => {
 
         inputValue = event.target.value;

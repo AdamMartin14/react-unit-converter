@@ -6,6 +6,7 @@ import ResultBox from '../../../../ResultBox/ResultBox';
 import PageTertiaryHeading from '../../../../PageTertiaryHeading/PageTertiaryHeading';
 import classes from '../../FromTo/FromTo.css';
 
+var convert = require('convert-units');
 
 const temperatureMeasurementUnits = [
     { value: 'celsius', label: 'Celsius' },
@@ -16,16 +17,17 @@ const temperatureMeasurementUnitsArray = temperatureMeasurementUnits.map(ctrl =>
     <option value={ctrl.value}>{ctrl.label}</option>
 ));
 
-
 let resultBox1 = '';
 let resultBox2 = '';
-let resultBoxName = '';
 let resultBoxId = '';
-let unitDropDownValue = '';
+let topSelectedDropDownValue = '';
+let bottomSelectedDropDownValue = '';
 let inputValue = '';
 let conversionResult = '';
-
-var convert = require('convert-units')
+let celsiusToFahrenheitConversion = '';
+let fahrenheitToCelsiusConversion = '';
+let capitalizedTopPlaceholder = '';
+let capitalizedBottomPlaceholder = '';
 
 
 
@@ -35,24 +37,25 @@ class FromToTemperature extends Component {
     state = {
         resultBoxOneState: '',
         resultBoxTwoState: '',
-        topSelectedDropDownValue: 'celsius',
-        bottomSelectedDropDownValue: 'fahrenheit',
+        topSelectedDropDownValueState: 'celsius',
+        bottomSelectedDropDownValueState: 'fahrenheit',
     }
 
     
+
     temperatureConversionHandler = (event) => {
 
-        inputValue = event.target.value;
-        resultBoxName = event.target.name;
+        inputValue = event.target.value;      
         resultBoxId = event.target.id;
+        celsiusToFahrenheitConversion = convert(inputValue).from('C').to('F').toFixed(1);
+        fahrenheitToCelsiusConversion = convert(inputValue).from('F').to('C').toFixed(1);  
 
-        
         if (resultBoxId === 'result-box-celsius') {
             console.log('c to f handler fired')
             console.log('c to f input: ' + inputValue);
-            conversionResult = convert(inputValue).from('C').to('F');
+            conversionResult = celsiusToFahrenheitConversion;
 
-            if (this.state.bottomSelectedDropDownValue === 'fahrenheit') {
+            if (this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
                 this.setState({resultBoxOneState: inputValue});
                 this.setState({resultBoxTwoState: conversionResult});
 
@@ -60,7 +63,6 @@ class FromToTemperature extends Component {
                 this.setState({resultBoxTwoState: inputValue});
                 this.setState({resultBoxOneState: conversionResult});
             }
-            
             console.log('c to f result: ' + conversionResult);
         }
 
@@ -68,61 +70,84 @@ class FromToTemperature extends Component {
         if (resultBoxId === 'result-box-fahrenheit') {
             console.log('f to c handler fired')
             console.log('f to c input: ' + inputValue);
-            conversionResult = convert(inputValue).from('F').to('C');
+            conversionResult = fahrenheitToCelsiusConversion;
 
-            if (this.state.bottomSelectedDropDownValue === 'fahrenheit') {
+            if (this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
                 this.setState({resultBoxTwoState: inputValue});
                 this.setState({resultBoxOneState: conversionResult});
 
             } else {
                 this.setState({resultBoxOneState: inputValue});
                 this.setState({resultBoxTwoState: conversionResult});
-            }
-            
+            }  
             console.log('f to c result: ' + conversionResult);
         }
 
 
-        if (this.state.topSelectedDropDownValue === this.state.bottomSelectedDropDownValue) {
+        if (this.state.topSelectedDropDownValueState === this.state.bottomSelectedDropDownValueState) {
             this.setState({resultBoxOneState: inputValue})
             this.setState({resultBoxTwoState: inputValue})
         }
-
     }
+
 
 
     unitDropDownValueHandler = (event) => {
 
-        unitDropDownValue = event.target.value;
+        topSelectedDropDownValue = event.target.value;
+        bottomSelectedDropDownValue = event.target.value;
 
-
-        this.setState({resultBoxOneState: ''})
-        this.setState({resultBoxTwoState: ''})
-
-         // TOP DROP-DOWN
          if (event.target.id === 'drop-down-1') {
-            this.setState({topSelectedDropDownValue: unitDropDownValue})
-            console.log('Selected: ' + unitDropDownValue + ' in Box 1');
+            this.setState({topSelectedDropDownValueState: topSelectedDropDownValue})
+            console.log('Selected: ' + topSelectedDropDownValue + ' in Box 1');
+
+                if (topSelectedDropDownValue === 'celsius' && this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
+                    this.setState({resultBoxOneState: Number((this.state.resultBoxTwoState - 32) * 5/9).toFixed(1)});
+                }
+
+                else if (topSelectedDropDownValue === 'fahrenheit' && this.state.bottomSelectedDropDownValueState === 'celsius') {
+                    this.setState({resultBoxOneState: Number((this.state.resultBoxTwoState * 9/5) + 32).toFixed(1)});           
+                }
+
+                else {
+                    this.setState({resultBoxOneState: this.state.resultBoxTwoState})
+                }
         }
         
-        // BOTTOM DROP-DOWN
+
         if (event.target.id === 'drop-down-2') {
-            this.setState({bottomSelectedDropDownValue: unitDropDownValue})
-            console.log('Selected: ' + unitDropDownValue + ' in Box 2');
-        }
+            this.setState({bottomSelectedDropDownValueState: bottomSelectedDropDownValue})
+            console.log('Selected: ' + bottomSelectedDropDownValue + ' in Box 2');
+
+                if (bottomSelectedDropDownValue === 'fahrenheit' && this.state.topSelectedDropDownValueState === 'celsius') {
+                    this.setState({resultBoxTwoState: Number((this.state.resultBoxOneState * 9/5) + 32).toFixed(1)});
+                }
+
+                else if (bottomSelectedDropDownValue === 'celsius' && this.state.topSelectedDropDownValueState === 'fahrenheit') {
+                    this.setState({resultBoxTwoState: Number((this.state.resultBoxOneState - 32) * 5/9).toFixed(1)});
+                }
+
+                else {
+                    this.setState({resultBoxTwoState: this.state.resultBoxOneState})
+                }
+        }  
+
     }
+
 
     
     
     render() {
 
+        capitalizedTopPlaceholder = this.state.topSelectedDropDownValueState.charAt(0).toUpperCase() + this.state.topSelectedDropDownValueState.slice(1);
+        capitalizedBottomPlaceholder = this.state.bottomSelectedDropDownValueState.charAt(0).toUpperCase() + this.state.bottomSelectedDropDownValueState.slice(1)
+
         resultBox1 = (
             <ResultBox
                 inputHandler={this.temperatureConversionHandler}
                 conversionValue={this.state.resultBoxOneState}
-                customID={'result-box-' + this.state.topSelectedDropDownValue}
-                //customName={'result-box-' + this.state.topSelectedDropDownValue}
-                customPlaceholder={'Enter a ' + this.state.topSelectedDropDownValue + ' Value'}
+                customID={'result-box-' + this.state.topSelectedDropDownValueState}
+                customPlaceholder={'Enter a ' + capitalizedTopPlaceholder + ' Value'}
             /> 
         );
 
@@ -130,14 +155,13 @@ class FromToTemperature extends Component {
             <ResultBox
                 inputHandler={this.temperatureConversionHandler}
                 conversionValue={this.state.resultBoxTwoState}
-                customID={'result-box-' + this.state.bottomSelectedDropDownValue}
-                //customName={'result-box-' + this.state.bottomSelectedDropDownValue}
-                customPlaceholder={'Enter a ' + this.state.bottomSelectedDropDownValue + ' Value'}
+                customID={'result-box-' + this.state.bottomSelectedDropDownValueState}
+                customPlaceholder={'Enter a ' + capitalizedBottomPlaceholder + ' Value'}
             /> 
         ); 
         
       
-    
+        
         return (
             
             <div className={classes.FromToContainer}>
