@@ -20,8 +20,9 @@ const temperatureMeasurementUnitsArray = temperatureMeasurementUnits.map(ctrl =>
 let resultBox1 = '';
 let resultBox2 = '';
 let resultBoxId = '';
-let topSelectedDropDownValue = '';
-let bottomSelectedDropDownValue = '';
+let unitDropDownId = '';
+let topSelectedUnitDropDownValue = '';
+let bottomSelectedUnitDropDownValue = '';
 let inputValue = '';
 let conversionResult = '';
 let celsiusToFahrenheitConversion = '';
@@ -31,121 +32,118 @@ let capitalizedBottomPlaceholder = '';
 
 
 
-
 class FromToTemperature extends Component {
 
     state = {
-        resultBoxOneState: '',
-        resultBoxTwoState: '',
+        resultBoxOneValueState: '',
+        resultBoxTwoValueState: '',
         topSelectedDropDownValueState: 'celsius',
         bottomSelectedDropDownValueState: 'fahrenheit',
     }
 
     
-
     temperatureConversionHandler = (event) => {
 
         inputValue = event.target.value;      
         resultBoxId = event.target.id;
         celsiusToFahrenheitConversion = convert(inputValue).from('C').to('F').toFixed(1);
-        fahrenheitToCelsiusConversion = convert(inputValue).from('F').to('C').toFixed(1);  
-
-        if (resultBoxId === 'result-box-celsius') {
-            console.log('c to f handler fired')
-            console.log('c to f input: ' + inputValue);
-            conversionResult = celsiusToFahrenheitConversion;
-
-            if (this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
-                this.setState({resultBoxOneState: inputValue});
-                this.setState({resultBoxTwoState: conversionResult});
-
-            } else {
-                this.setState({resultBoxTwoState: inputValue});
-                this.setState({resultBoxOneState: conversionResult});
-            }
-            console.log('c to f result: ' + conversionResult);
-        }
-
-
-        if (resultBoxId === 'result-box-fahrenheit') {
-            console.log('f to c handler fired')
-            console.log('f to c input: ' + inputValue);
-            conversionResult = fahrenheitToCelsiusConversion;
-
-            if (this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
-                this.setState({resultBoxTwoState: inputValue});
-                this.setState({resultBoxOneState: conversionResult});
-
-            } else {
-                this.setState({resultBoxOneState: inputValue});
-                this.setState({resultBoxTwoState: conversionResult});
-            }  
-            console.log('f to c result: ' + conversionResult);
-        }
-
+        fahrenheitToCelsiusConversion = convert(inputValue).from('F').to('C').toFixed(1);
+        
 
         if (this.state.topSelectedDropDownValueState === this.state.bottomSelectedDropDownValueState) {
-            this.setState({resultBoxOneState: inputValue})
-            this.setState({resultBoxTwoState: inputValue})
+            this.setState({resultBoxOneValueState: inputValue})
+            this.setState({resultBoxTwoValueState: inputValue})
+        }
+
+        if (resultBoxId === 'result-box-celsius') {
+
+            // TOP C TO BOTTOM F/ BOTTOM C TO TOP F
+            if (this.state.topSelectedDropDownValueState === 'fahrenheit' || this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
+
+                conversionResult = celsiusToFahrenheitConversion;
+
+                if (this.state.topSelectedDropDownValueState === 'celsius') {
+                    this.setState({resultBoxOneValueState: inputValue});
+                    this.setState({resultBoxTwoValueState: conversionResult});
+
+                } else {
+                    this.setState({resultBoxTwoValueState: inputValue});
+                    this.setState({resultBoxOneValueState: conversionResult});
+                }      
+            }
+        }
+
+        if (resultBoxId === 'result-box-fahrenheit') {
+
+            // TOP F TO BOTTOM C/ BOTTOM F TO TOP C
+            if (this.state.topSelectedDropDownValueState === 'celsius' || this.state.bottomSelectedDropDownValueState === 'celsius') {
+
+                conversionResult = fahrenheitToCelsiusConversion;
+
+                if (this.state.topSelectedDropDownValueState === 'fahrenheit') {
+                    this.setState({resultBoxOneValueState: inputValue});
+                    this.setState({resultBoxTwoValueState: conversionResult});
+
+                } else {
+                    this.setState({resultBoxTwoValueState: inputValue});
+                    this.setState({resultBoxOneValueState: conversionResult});
+                }      
+            }
         }
     }
-
 
 
     unitDropDownValueHandler = (event) => {
 
-        topSelectedDropDownValue = event.target.value;
-        bottomSelectedDropDownValue = event.target.value;
+        unitDropDownId = event.target.id;
+        topSelectedUnitDropDownValue = event.target.value;
+        bottomSelectedUnitDropDownValue = event.target.value;
+        
+        if (unitDropDownId === 'drop-down-1') {
+            this.setState({topSelectedDropDownValueState: topSelectedUnitDropDownValue})
+            console.log('Selected: ' + topSelectedUnitDropDownValue + ' in Box 1');
 
-         if (event.target.id === 'drop-down-1') {
-            this.setState({topSelectedDropDownValueState: topSelectedDropDownValue})
-            console.log('Selected: ' + topSelectedDropDownValue + ' in Box 1');
-
-                if (topSelectedDropDownValue === 'celsius' && this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
-                    this.setState({resultBoxOneState: Number((this.state.resultBoxTwoState - 32) * 5/9).toFixed(1)});
+                if (topSelectedUnitDropDownValue === 'celsius' && this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState - 32) * 5/9).toFixed(1)});
                 }
 
-                else if (topSelectedDropDownValue === 'fahrenheit' && this.state.bottomSelectedDropDownValueState === 'celsius') {
-                    this.setState({resultBoxOneState: Number((this.state.resultBoxTwoState * 9/5) + 32).toFixed(1)});           
+                else if (topSelectedUnitDropDownValue === 'fahrenheit' && this.state.bottomSelectedDropDownValueState === 'celsius') {
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 9/5) + 32).toFixed(1)});           
                 }
 
                 else {
-                    this.setState({resultBoxOneState: this.state.resultBoxTwoState})
+                    this.setState({resultBoxOneValueState: this.state.resultBoxTwoValueState})
                 }
         }
         
+        if (unitDropDownId === 'drop-down-2') {
+            this.setState({bottomSelectedDropDownValueState: bottomSelectedUnitDropDownValue})
+            console.log('Selected: ' + bottomSelectedUnitDropDownValue + ' in Box 2');
 
-        if (event.target.id === 'drop-down-2') {
-            this.setState({bottomSelectedDropDownValueState: bottomSelectedDropDownValue})
-            console.log('Selected: ' + bottomSelectedDropDownValue + ' in Box 2');
-
-                if (bottomSelectedDropDownValue === 'fahrenheit' && this.state.topSelectedDropDownValueState === 'celsius') {
-                    this.setState({resultBoxTwoState: Number((this.state.resultBoxOneState * 9/5) + 32).toFixed(1)});
+                if (bottomSelectedUnitDropDownValue === 'fahrenheit' && this.state.topSelectedDropDownValueState === 'celsius') {
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 9/5) + 32).toFixed(1)});
                 }
 
-                else if (bottomSelectedDropDownValue === 'celsius' && this.state.topSelectedDropDownValueState === 'fahrenheit') {
-                    this.setState({resultBoxTwoState: Number((this.state.resultBoxOneState - 32) * 5/9).toFixed(1)});
+                else if (bottomSelectedUnitDropDownValue === 'celsius' && this.state.topSelectedDropDownValueState === 'fahrenheit') {
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState - 32) * 5/9).toFixed(1)});
                 }
 
                 else {
-                    this.setState({resultBoxTwoState: this.state.resultBoxOneState})
+                    this.setState({resultBoxTwoValueState: this.state.resultBoxOneValueState})
                 }
         }  
-
     }
 
 
-    
-    
     render() {
 
         capitalizedTopPlaceholder = this.state.topSelectedDropDownValueState.charAt(0).toUpperCase() + this.state.topSelectedDropDownValueState.slice(1);
-        capitalizedBottomPlaceholder = this.state.bottomSelectedDropDownValueState.charAt(0).toUpperCase() + this.state.bottomSelectedDropDownValueState.slice(1)
+        capitalizedBottomPlaceholder = this.state.bottomSelectedDropDownValueState.charAt(0).toUpperCase() + this.state.bottomSelectedDropDownValueState.slice(1);
 
         resultBox1 = (
             <ResultBox
                 inputHandler={this.temperatureConversionHandler}
-                conversionValue={this.state.resultBoxOneState}
+                conversionValue={this.state.resultBoxOneValueState}
                 customID={'result-box-' + this.state.topSelectedDropDownValueState}
                 customPlaceholder={'Enter a ' + capitalizedTopPlaceholder + ' Value'}
             /> 
@@ -154,14 +152,13 @@ class FromToTemperature extends Component {
         resultBox2 = (
             <ResultBox
                 inputHandler={this.temperatureConversionHandler}
-                conversionValue={this.state.resultBoxTwoState}
+                conversionValue={this.state.resultBoxTwoValueState}
                 customID={'result-box-' + this.state.bottomSelectedDropDownValueState}
                 customPlaceholder={'Enter a ' + capitalizedBottomPlaceholder + ' Value'}
             /> 
         ); 
         
       
-        
         return (
             
             <div className={classes.FromToContainer}>
@@ -200,6 +197,5 @@ class FromToTemperature extends Component {
         )
     }
 };
-
 
 export default FromToTemperature;
