@@ -27,7 +27,7 @@ const unitNameValuesArray = unitNameValues.map(ctrl => (
 class AppLogicContainer extends Component {
 
     state = {
-        unitNameSelectValue: 'Temperature'
+        unitNameSelectValue: 'Weight'
     }
 
 
