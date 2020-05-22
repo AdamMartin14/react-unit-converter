@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 import FromToTemperature from '../AppLogicContainer/FromTo/FromToTemperature/FromToTemperature';
 import FromToWeight from '../AppLogicContainer/FromTo/FromToWeight/FromToWeight';
 import FromToLength from '../AppLogicContainer/FromTo/FromToLength/FromToLength';
+import FromToSpeed from '../AppLogicContainer/FromTo/FromToSpeed/FromToSpeed';
 import PageSecondaryHeading from '../../PageSecondaryHeading/PageSecondaryHeading';
 import PageTertiaryHeading from '../../PageTertiaryHeading/PageTertiaryHeading'; 
 import DropDownMenuSelect from '../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
 import DropDownMenuOptions from '../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
 import classes from '../AppLogicContainer/AppLogicContainer.css';
-
 
 
 const unitNameValues = [
@@ -27,7 +27,7 @@ const unitNameValuesArray = unitNameValues.map(ctrl => (
 class AppLogicContainer extends Component {
 
     state = {
-        unitNameSelectValue: 'Weight'
+        unitNameSelectValue: 'Temperature'
     }
 
 
@@ -57,9 +57,7 @@ class AppLogicContainer extends Component {
                 break;
 
             case('Speed'):
-                selectedFromToComponent = (
-                    <div>FromTo SPEED</div>  
-                );
+                selectedFromToComponent = <FromToSpeed />
                 break;
 
                 default:
@@ -98,7 +96,6 @@ class AppLogicContainer extends Component {
             </div>  
 
         );
-
     }       
 }
 

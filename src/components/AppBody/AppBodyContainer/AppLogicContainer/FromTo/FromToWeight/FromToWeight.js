@@ -6,7 +6,8 @@ import ResultBox from '../../../../ResultBox/ResultBox';
 import PageTertiaryHeading from '../../../../PageTertiaryHeading/PageTertiaryHeading';
 import classes from '../../FromTo/FromTo.css';
 
-var convert = require('convert-units')
+var convert = require('convert-units');
+
 
 const weightMeasurementUnits = [
     { value: 'milligram', label: 'Milligram' },
@@ -28,7 +29,6 @@ let unitDropDownId = '';
 let topSelectedUnitDropDownValue = '';
 let bottomSelectedUnitDropDownValue = '';
 let inputValue = '';
-
 let milligramToGramConversion = '';
 let milligramToKilogramConversion = '';
 let milligramToOunceConversion = '';
