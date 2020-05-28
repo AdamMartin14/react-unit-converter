@@ -10,10 +10,10 @@ var convert = require('convert-units');
 
 
 const weightMeasurementUnits = [
-    { value: 'milligram', label: 'Milligram' },
     { value: 'gram', label: 'Gram' },
-    { value: 'kilogram', label: 'Kilogram' },
     { value: 'ounce', label: 'Ounce' },
+    { value: 'milligram', label: 'Milligram' },
+    { value: 'kilogram', label: 'Kilogram' },
     { value: 'pound', label: 'Pound' },
     { value: 'ton', label: 'US Ton' },
  ];
@@ -70,8 +70,8 @@ class FromToWeight extends Component {
     state = { 
         resultBoxOneValueState: '',
         resultBoxTwoValueState: '',
-        topSelectedDropDownValueState: 'milligram',
-        bottomSelectedDropDownValueState: 'gram'
+        topSelectedDropDownValueState: 'gram',
+        bottomSelectedDropDownValueState: 'ounce'
     }
 
 
@@ -80,41 +80,41 @@ class FromToWeight extends Component {
         inputValue = event.target.value;
         resultBoxId = event.target.id;
 
-        milligramToGramConversion = convert(inputValue).from('mg').to('g').toFixed(1);
-        milligramToKilogramConversion = convert(inputValue).from('mg').to('kg').toFixed(1);
-        milligramToOunceConversion = convert(inputValue).from('mg').to('oz').toFixed(1);
-        milligramToPoundConversion = convert(inputValue).from('mg').to('lb').toFixed(1);
-        milligramToTonConversion = convert(inputValue).from('mg').to('t').toFixed(1);
+        milligramToGramConversion = convert(inputValue).from('mg').to('g').toFixed(2);
+        milligramToKilogramConversion = convert(inputValue).from('mg').to('kg').toFixed(2);
+        milligramToOunceConversion = convert(inputValue).from('mg').to('oz').toFixed(2);
+        milligramToPoundConversion = convert(inputValue).from('mg').to('lb').toFixed(2);
+        milligramToTonConversion = convert(inputValue).from('mg').to('t').toFixed(2);
 
-        gramToMilligramConversion = convert(inputValue).from('g').to('mg').toFixed(1);
-        gramToKilogramConversion = convert(inputValue).from('g').to('kg').toFixed(1);
-        gramToOunceConversion = convert(inputValue).from('g').to('oz').toFixed(1);
-        gramToPoundConversion = convert(inputValue).from('g').to('lb').toFixed(1);
-        gramToTonConversion = convert(inputValue).from('g').to('t').toFixed(1);
+        gramToMilligramConversion = convert(inputValue).from('g').to('mg').toFixed(2);
+        gramToKilogramConversion = convert(inputValue).from('g').to('kg').toFixed(2);
+        gramToOunceConversion = convert(inputValue).from('g').to('oz').toFixed(2);
+        gramToPoundConversion = convert(inputValue).from('g').to('lb').toFixed(2);
+        gramToTonConversion = convert(inputValue).from('g').to('t').toFixed(2);
 
-        kilogramToGramConversion = convert(inputValue).from('kg').to('g').toFixed(1);
-        kilogramToMilligramConversion = convert(inputValue).from('kg').to('mg').toFixed(1);
-        kilogramToOunceConversion = convert(inputValue).from('kg').to('oz').toFixed(1);
-        kilogramToPoundConversion = convert(inputValue).from('kg').to('lb').toFixed(1);
-        kilogramToTonConversion = convert(inputValue).from('kg').to('t').toFixed(1);
+        kilogramToGramConversion = convert(inputValue).from('kg').to('g').toFixed(2);
+        kilogramToMilligramConversion = convert(inputValue).from('kg').to('mg').toFixed(2);
+        kilogramToOunceConversion = convert(inputValue).from('kg').to('oz').toFixed(2);
+        kilogramToPoundConversion = convert(inputValue).from('kg').to('lb').toFixed(2);
+        kilogramToTonConversion = convert(inputValue).from('kg').to('t').toFixed(2);
 
-        ounceToKilogramConversion = convert(inputValue).from('oz').to('kg').toFixed(1);
-        ounceToGramConversion = convert(inputValue).from('oz').to('g').toFixed(1);
-        ounceToMilligramConversion = convert(inputValue).from('oz').to('mg').toFixed(1);
-        ounceToPoundConversion = convert(inputValue).from('oz').to('lb').toFixed(1);
-        ounceToTonConversion = convert(inputValue).from('oz').to('t').toFixed(1);
+        ounceToKilogramConversion = convert(inputValue).from('oz').to('kg').toFixed(2);
+        ounceToGramConversion = convert(inputValue).from('oz').to('g').toFixed(2);
+        ounceToMilligramConversion = convert(inputValue).from('oz').to('mg').toFixed(2);
+        ounceToPoundConversion = convert(inputValue).from('oz').to('lb').toFixed(2);
+        ounceToTonConversion = convert(inputValue).from('oz').to('t').toFixed(2);
 
-        poundToOunceConversion = convert(inputValue).from('lb').to('oz').toFixed(1);
-        poundToKilogramConversion = convert(inputValue).from('lb').to('kg').toFixed(1);
-        poundToGramConversion = convert(inputValue).from('lb').to('g').toFixed(1);
-        poundToMilligramConversion = convert(inputValue).from('lb').to('mg').toFixed(1);
-        poundToTonConversion = convert(inputValue).from('lb').to('t').toFixed(1);
+        poundToOunceConversion = convert(inputValue).from('lb').to('oz').toFixed(2);
+        poundToKilogramConversion = convert(inputValue).from('lb').to('kg').toFixed(2);
+        poundToGramConversion = convert(inputValue).from('lb').to('g').toFixed(2);
+        poundToMilligramConversion = convert(inputValue).from('lb').to('mg').toFixed(2);
+        poundToTonConversion = convert(inputValue).from('lb').to('t').toFixed(2);
 
-        tonToPoundConversion = convert(inputValue).from('t').to('lb').toFixed(1);
-        tonToOunceConversion = convert(inputValue).from('t').to('oz').toFixed(1);
-        tonToKilogramConversion = convert(inputValue).from('t').to('kg').toFixed(1);
-        tonToGramConversion = convert(inputValue).from('t').to('g').toFixed(1);
-        tonToMilligramConversion = convert(inputValue).from('t').to('mg').toFixed(1);
+        tonToPoundConversion = convert(inputValue).from('t').to('lb').toFixed(2);
+        tonToOunceConversion = convert(inputValue).from('t').to('oz').toFixed(2);
+        tonToKilogramConversion = convert(inputValue).from('t').to('kg').toFixed(2);
+        tonToGramConversion = convert(inputValue).from('t').to('g').toFixed(2);
+        tonToMilligramConversion = convert(inputValue).from('t').to('mg').toFixed(2);
         
 
         if (this.state.topSelectedDropDownValueState === this.state.bottomSelectedDropDownValueState) {
@@ -615,19 +615,19 @@ class FromToWeight extends Component {
             if (topSelectedUnitDropDownValue === 'milligram') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1000)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1000)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1e+6)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1e+6)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 28350)).toFixed(1)});                    
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 28350)).toFixed(2)});                    
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 453592)).toFixed(1)});                         
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 453592)).toFixed(2)});                         
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ton') {
@@ -638,19 +638,19 @@ class FromToWeight extends Component {
             if (topSelectedUnitDropDownValue === 'gram') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1000)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1000)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1000)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1000)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 28.35)).toFixed(1)});                                        
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 28.35)).toFixed(2)});                                        
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 454)).toFixed(1)});                                             
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 454)).toFixed(2)});                                             
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ton') {
@@ -661,19 +661,19 @@ class FromToWeight extends Component {
             if (topSelectedUnitDropDownValue === 'kilogram') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1000)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1000)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1e+6)).toFixed(1)});                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1e+6)).toFixed(2)});                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 35.274)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 35.274)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2.205)).toFixed(1)});                                                                                                         
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2.205)).toFixed(2)});                                                                                                         
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ton') {
@@ -684,19 +684,19 @@ class FromToWeight extends Component {
             if (topSelectedUnitDropDownValue === 'ounce') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 35.274)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 35.274)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 28.35)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 28.35)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 28350)).toFixed(1)});                                                                                                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 28350)).toFixed(2)});                                                                                                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 16)).toFixed(1)});                                                                                                                                                                       
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 16)).toFixed(2)});                                                                                                                                                                       
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ton') {
@@ -707,19 +707,19 @@ class FromToWeight extends Component {
             if (topSelectedUnitDropDownValue === 'pound') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 16)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 16)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 2.205)).toFixed(1)});                                                                                                                                                                                           
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 2.205)).toFixed(2)});                                                                                                                                                                                           
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 454)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 454)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 453592)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 453592)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ton') {
@@ -730,23 +730,23 @@ class FromToWeight extends Component {
             if (topSelectedUnitDropDownValue === 'ton') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2000)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2000)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 32000)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 32000)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 907)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 907)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 907185)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 907185)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 9.072e+8)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 9.072e+8)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
             }
         }
@@ -764,19 +764,19 @@ class FromToWeight extends Component {
             if (bottomSelectedUnitDropDownValue === 'milligram') {
 
                 if (this.state.topSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1000)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1000)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1e+6)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1e+6)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 28350)).toFixed(1)});                    
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 28350)).toFixed(2)});                    
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 453592)).toFixed(1)});                         
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 453592)).toFixed(2)});                         
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ton') {
@@ -787,19 +787,19 @@ class FromToWeight extends Component {
             if (bottomSelectedUnitDropDownValue === 'gram') {
 
                 if (this.state.topSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1000)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1000)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1000)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1000)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 28.35)).toFixed(1)});                                        
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 28.35)).toFixed(2)});                                        
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 454)).toFixed(1)});                                             
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 454)).toFixed(2)});                                             
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ton') {
@@ -810,19 +810,19 @@ class FromToWeight extends Component {
             if (bottomSelectedUnitDropDownValue === 'kilogram') {
 
                 if (this.state.topSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1000)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1000)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1e+6)).toFixed(1)});                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1e+6)).toFixed(2)});                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 35.274)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 35.274)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.205)).toFixed(1)});                                                                                                         
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.205)).toFixed(2)});                                                                                                         
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ton') {
@@ -833,19 +833,19 @@ class FromToWeight extends Component {
             if (bottomSelectedUnitDropDownValue === 'ounce') {
 
                 if (this.state.topSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 35.274)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 35.274)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 28.35)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 28.35)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 28350)).toFixed(1)});                                                                                                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 28350)).toFixed(2)});                                                                                                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 16)).toFixed(1)});                                                                                                                                                                       
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 16)).toFixed(2)});                                                                                                                                                                       
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ton') {
@@ -856,19 +856,19 @@ class FromToWeight extends Component {
             if (bottomSelectedUnitDropDownValue === 'pound') {
 
                 if (this.state.topSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 16)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 16)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 2.205)).toFixed(1)});                                                                                                                                                                                           
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 2.205)).toFixed(2)});                                                                                                                                                                                           
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 454)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 454)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 453592)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 453592)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ton') {
@@ -879,23 +879,23 @@ class FromToWeight extends Component {
             if (bottomSelectedUnitDropDownValue === 'ton') {
 
                 if (this.state.topSelectedDropDownValueState === 'pound') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2000)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2000)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'ounce') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 32000)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 32000)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'kilogram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 907)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 907)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'gram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 907185)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 907185)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'milligram') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 9.072e+8)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 9.072e+8)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
             }
         }      

@@ -10,10 +10,10 @@ var convert = require('convert-units')
 
 
 const speedMeasurementUnits = [
+    { value: 'mile-per-hour', label: 'Mile Per Hour' },
+    { value: 'kilometer-per-hour', label: 'Kilometer Per Hour' },
     { value: 'meter-per-second', label: 'Meter Per Second' },
     { value: 'foot-per-second', label: 'Foot Per Second' },
-    { value: 'kilometer-per-hour', label: 'Kilometer Per Hour' },
-    { value: 'mile-per-hour', label: 'Mile Per Hour' },
     { value: 'knot', label: 'Knot' },
  ];
 
@@ -59,8 +59,8 @@ class FromToSpeed extends Component {
     state = { 
         resultBoxOneValueState: '',
         resultBoxTwoValueState: '',
-        topSelectedDropDownValueState: 'meter-per-second',
-        bottomSelectedDropDownValueState: 'foot-per-second'
+        topSelectedDropDownValueState: 'mile-per-hour',
+        bottomSelectedDropDownValueState: 'kilometer-per-hour'
     }
 
 
@@ -69,30 +69,30 @@ class FromToSpeed extends Component {
         inputValue = event.target.value;
         resultBoxId = event.target.id;
 
-        meterPerSecondToFootPerSecondConversion = convert(inputValue).from('m/s').to('ft/s').toFixed(1);
-        meterPerSecondToKilometerPerHourConversion = convert(inputValue).from('m/s').to('km/h').toFixed(1);
-        meterPerSecondToMilePerHourConversion = convert(inputValue).from('m/s').to('m/h').toFixed(1);
-        meterPerSecondToKnotConversion = convert(inputValue).from('m/s').to('knot').toFixed(1);
+        meterPerSecondToFootPerSecondConversion = convert(inputValue).from('m/s').to('ft/s').toFixed(2);
+        meterPerSecondToKilometerPerHourConversion = convert(inputValue).from('m/s').to('km/h').toFixed(2);
+        meterPerSecondToMilePerHourConversion = convert(inputValue).from('m/s').to('m/h').toFixed(2);
+        meterPerSecondToKnotConversion = convert(inputValue).from('m/s').to('knot').toFixed(2);
 
-        footPerSecondToMeterPerSecondConversion = convert(inputValue).from('ft/s').to('m/s').toFixed(1);
-        footPerSecondToKilometerPerHourConversion = convert(inputValue).from('ft/s').to('km/h').toFixed(1);
-        footPerSecondToMilePerHourConversion = convert(inputValue).from('ft/s').to('m/h').toFixed(1);
-        footPerSecondToKnotConversion = convert(inputValue).from('ft/s').to('knot').toFixed(1);
+        footPerSecondToMeterPerSecondConversion = convert(inputValue).from('ft/s').to('m/s').toFixed(2);
+        footPerSecondToKilometerPerHourConversion = convert(inputValue).from('ft/s').to('km/h').toFixed(2);
+        footPerSecondToMilePerHourConversion = convert(inputValue).from('ft/s').to('m/h').toFixed(2);
+        footPerSecondToKnotConversion = convert(inputValue).from('ft/s').to('knot').toFixed(2);
 
-        kilometerPerHourToFootPerSecondConversion = convert(inputValue).from('km/h').to('ft/s').toFixed(1);
-        kilometerPerHourToMeterPerSecondConversion = convert(inputValue).from('km/h').to('m/s').toFixed(1);
-        kilometerPerHourToMilePerHourConversion = convert(inputValue).from('km/h').to('m/h').toFixed(1);
-        kilometerPerHourToKnotConversion = convert(inputValue).from('km/h').to('knot').toFixed(1);
+        kilometerPerHourToFootPerSecondConversion = convert(inputValue).from('km/h').to('ft/s').toFixed(2);
+        kilometerPerHourToMeterPerSecondConversion = convert(inputValue).from('km/h').to('m/s').toFixed(2);
+        kilometerPerHourToMilePerHourConversion = convert(inputValue).from('km/h').to('m/h').toFixed(2);
+        kilometerPerHourToKnotConversion = convert(inputValue).from('km/h').to('knot').toFixed(2);
 
-        milePerHourToKilometerPerHourConversion = convert(inputValue).from('m/h').to('km/h').toFixed(1);
-        milePerHourToFootPerSecondConversion = convert(inputValue).from('m/h').to('ft/s').toFixed(1);
-        milePerHourToMeterPerSecondConversion = convert(inputValue).from('m/h').to('m/s').toFixed(1);
-        milePerHourToKnotConversion = convert(inputValue).from('m/h').to('knot').toFixed(1);
+        milePerHourToKilometerPerHourConversion = convert(inputValue).from('m/h').to('km/h').toFixed(2);
+        milePerHourToFootPerSecondConversion = convert(inputValue).from('m/h').to('ft/s').toFixed(2);
+        milePerHourToMeterPerSecondConversion = convert(inputValue).from('m/h').to('m/s').toFixed(2);
+        milePerHourToKnotConversion = convert(inputValue).from('m/h').to('knot').toFixed(2);
 
-        knotToMilePerHourConversion = convert(inputValue).from('knot').to('m/h').toFixed(1);
-        knotToKilometerPerHourConversion = convert(inputValue).from('knot').to('km/h').toFixed(1);
-        knotToFootPerSecondConversion = convert(inputValue).from('knot').to('ft/s').toFixed(1);
-        knotToMeterPerSecondConversion = convert(inputValue).from('knot').to('m/s').toFixed(1);
+        knotToMilePerHourConversion = convert(inputValue).from('knot').to('m/h').toFixed(2);
+        knotToKilometerPerHourConversion = convert(inputValue).from('knot').to('km/h').toFixed(2);
+        knotToFootPerSecondConversion = convert(inputValue).from('knot').to('ft/s').toFixed(2);
+        knotToMeterPerSecondConversion = convert(inputValue).from('knot').to('m/s').toFixed(2);
 
         
         if (this.state.topSelectedDropDownValueState === this.state.bottomSelectedDropDownValueState) {
@@ -439,95 +439,95 @@ class FromToSpeed extends Component {
             if (topSelectedUnitDropDownValue === 'meter-per-second') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 3.281)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 3.281)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 3.6)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 3.6)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2.237)).toFixed(1)});                    
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2.237)).toFixed(2)});                    
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.944)).toFixed(1)});                         
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.944)).toFixed(2)});                         
                 }
             }
 
             if (topSelectedUnitDropDownValue === 'foot-per-second') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 3.281)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 3.281)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.097)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.097)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.467)).toFixed(1)});                                        
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.467)).toFixed(2)});                                        
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.688)).toFixed(1)});                                             
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.688)).toFixed(2)});                                             
                 }
             }
 
             if (topSelectedUnitDropDownValue === 'kilometer-per-hour') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.097)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.097)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 3.6)).toFixed(1)});                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 3.6)).toFixed(2)});                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.609)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.609)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.852)).toFixed(1)});                                                                                                         
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.852)).toFixed(2)});                                                                                                         
                 }
             }
 
             if (topSelectedUnitDropDownValue === 'mile-per-hour') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.609)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.609)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.467)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.467)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 2.237)).toFixed(1)});                                                                                                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 2.237)).toFixed(2)});                                                                                                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.151)).toFixed(1)});                                                                                                                                                                       
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.151)).toFixed(2)});                                                                                                                                                                       
                 }
             }
 
             if (topSelectedUnitDropDownValue === 'knot') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.151)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.151)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.852)).toFixed(1)});                                                                                                                                                                                           
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.852)).toFixed(2)});                                                                                                                                                                                           
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.688)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.688)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.944)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1.944)).toFixed(2)});                                                                                                                                                                                                               
                 }
             }
         }
@@ -545,95 +545,95 @@ class FromToSpeed extends Component {
             if (bottomSelectedUnitDropDownValue === 'meter-per-second') {
 
                 if (this.state.topSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 3.281)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 3.281)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 3.6)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 3.6)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.237)).toFixed(1)});                    
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.237)).toFixed(2)});                    
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.944)).toFixed(1)});                         
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.944)).toFixed(2)});                         
                 }
             }
 
             if (bottomSelectedUnitDropDownValue === 'foot-per-second') {
 
                 if (this.state.topSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 3.281)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 3.281)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.097)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.097)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.467)).toFixed(1)});                                        
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.467)).toFixed(2)});                                        
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.688)).toFixed(1)});                                             
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.688)).toFixed(2)});                                             
                 }
             }
 
             if (bottomSelectedUnitDropDownValue === 'kilometer-per-hour') {
 
                 if (this.state.topSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.097)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.097)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 3.6)).toFixed(1)});                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 3.6)).toFixed(2)});                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.609)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.609)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.852)).toFixed(1)});                                                                                                         
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.852)).toFixed(2)});                                                                                                         
                 }
             }
 
             if (bottomSelectedUnitDropDownValue === 'mile-per-hour') {
 
                 if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.609)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.609)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.467)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.467)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 2.237)).toFixed(1)});                                                                                                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 2.237)).toFixed(2)});                                                                                                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'knot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.151)).toFixed(1)});                                                                                                                                                                       
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.151)).toFixed(2)});                                                                                                                                                                       
                 }
             }
 
             if (bottomSelectedUnitDropDownValue === 'knot') {
 
                 if (this.state.topSelectedDropDownValueState === 'mile-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.151)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.151)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.852)).toFixed(1)});                                                                                                                                                                                           
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.852)).toFixed(2)});                                                                                                                                                                                           
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'foot-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.688)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.688)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'meter-per-second') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.944)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1.944)).toFixed(2)});                                                                                                                                                                                                               
                 }
             }
         }      

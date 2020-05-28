@@ -26,8 +26,10 @@ let topSelectedUnitDropDownValue = '';
 let bottomSelectedUnitDropDownValue = '';
 let inputValue = '';
 let conversionResult = '';
-let celsiusToFahrenheitConversion = '';
-let fahrenheitToCelsiusConversion = '';
+let rawCelsiusToFahrenheitConversion = '';
+let rawFahrenheitToCelsiusConversion = '';
+let roundedCelsiusToFahrenheitConversion = '';
+let roundedFahrenheitToCelsiusConversion = '';
 let capitalizedTopPlaceholder = '';
 let capitalizedBottomPlaceholder = '';
 
@@ -47,9 +49,12 @@ class FromToTemperature extends Component {
 
         inputValue = event.target.value;      
         resultBoxId = event.target.id;
-        celsiusToFahrenheitConversion = convert(inputValue).from('C').to('F').toFixed(1);
-        fahrenheitToCelsiusConversion = convert(inputValue).from('F').to('C').toFixed(1);
-        
+        rawCelsiusToFahrenheitConversion = convert(inputValue).from('C').to('F');
+        rawFahrenheitToCelsiusConversion = convert(inputValue).from('F').to('C');
+
+        roundedCelsiusToFahrenheitConversion = Math.round(rawCelsiusToFahrenheitConversion);
+        roundedFahrenheitToCelsiusConversion = Math.round(rawFahrenheitToCelsiusConversion);
+
 
         if (this.state.topSelectedDropDownValueState === this.state.bottomSelectedDropDownValueState) {
             this.setState({resultBoxOneValueState: inputValue})
@@ -61,7 +66,7 @@ class FromToTemperature extends Component {
             // TOP C TO BOTTOM F/ BOTTOM C TO TOP F
             if (this.state.topSelectedDropDownValueState === 'fahrenheit' || this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
 
-                conversionResult = celsiusToFahrenheitConversion;
+                conversionResult = roundedCelsiusToFahrenheitConversion;
 
                 if (this.state.topSelectedDropDownValueState === 'celsius') {
                     this.setState({resultBoxOneValueState: inputValue});
@@ -79,7 +84,7 @@ class FromToTemperature extends Component {
             // TOP F TO BOTTOM C/ BOTTOM F TO TOP C
             if (this.state.topSelectedDropDownValueState === 'celsius' || this.state.bottomSelectedDropDownValueState === 'celsius') {
 
-                conversionResult = fahrenheitToCelsiusConversion;
+                conversionResult = roundedFahrenheitToCelsiusConversion;
 
                 if (this.state.topSelectedDropDownValueState === 'fahrenheit') {
                     this.setState({resultBoxOneValueState: inputValue});
@@ -105,11 +110,11 @@ class FromToTemperature extends Component {
             console.log('Selected: ' + topSelectedUnitDropDownValue + ' in Box 1');
 
                 if (topSelectedUnitDropDownValue === 'celsius' && this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState - 32) * 5/9).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Math.round(Number((this.state.resultBoxTwoValueState - 32) * 5/9))});
                 }
 
                 else if (topSelectedUnitDropDownValue === 'fahrenheit' && this.state.bottomSelectedDropDownValueState === 'celsius') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 9/5) + 32).toFixed(1)});           
+                    this.setState({resultBoxOneValueState: Math.round(Number((this.state.resultBoxTwoValueState * 9/5) + 32))});           
                 }
 
                 else {
@@ -122,11 +127,11 @@ class FromToTemperature extends Component {
             console.log('Selected: ' + bottomSelectedUnitDropDownValue + ' in Box 2');
 
                 if (bottomSelectedUnitDropDownValue === 'fahrenheit' && this.state.topSelectedDropDownValueState === 'celsius') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 9/5) + 32).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Math.round(Number((this.state.resultBoxOneValueState * 9/5) + 32))});
                 }
 
                 else if (bottomSelectedUnitDropDownValue === 'celsius' && this.state.topSelectedDropDownValueState === 'fahrenheit') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState - 32) * 5/9).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Math.round(Number((this.state.resultBoxOneValueState - 32) * 5/9))});
                 }
 
                 else {

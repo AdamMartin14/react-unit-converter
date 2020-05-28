@@ -2,7 +2,7 @@
 import React from 'react';
 import '../DropDownMenuSelect/DropDownMenuSelect.css';
 
-const selectTest = (props) => {
+const dropDownMenuSelect = (props) => {
 
     return (
 
@@ -18,4 +18,4 @@ const selectTest = (props) => {
 }
 
 
-export default selectTest;
+export default dropDownMenuSelect;
