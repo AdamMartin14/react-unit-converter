@@ -1,4 +1,3 @@
-// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
 import React from 'react';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import MobileNavToggle from './MobileNavToggle/MobileNavToggle';

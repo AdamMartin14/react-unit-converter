@@ -1,4 +1,3 @@
-// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
 import TopNavBar from '../TopNavBar/TopNavBar';
 import MobileNavModal from '../TopNavBar/MobileNavModal/MobileNavModal';
@@ -6,7 +5,6 @@ import MobileNavModal from '../TopNavBar/MobileNavModal/MobileNavModal';
 
 class NavigationContainer extends Component {
 
-  // MOBILE NAV MODAL OPEN/ CLOSE LOGIC
   state = {
     showMobileNavModal: false
   }

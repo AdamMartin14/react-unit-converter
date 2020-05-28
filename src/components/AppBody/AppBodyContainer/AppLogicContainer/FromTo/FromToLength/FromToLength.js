@@ -1,4 +1,3 @@
-// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
 import DropDownMenuSelect from '../../../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
 import DropDownMenuOptions from '../../../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
@@ -124,7 +123,6 @@ class FromToLength extends Component {
 
         if (resultBoxId === 'result-box-millimeter') {
 
-            // TOP MM TO BOTTOM CM/ BOTTOM MM TO TOP CM
             if (this.state.topSelectedDropDownValueState === 'centimeter' || this.state.bottomSelectedDropDownValueState === 'centimeter') {
 
                 conversionResult = millimeterToCentimeterConversion;
@@ -139,7 +137,6 @@ class FromToLength extends Component {
                 }      
             }
         
-            // TOP MM TO BOTTOM IN/ BOTTOM MM TO TOP IN
             if (this.state.topSelectedDropDownValueState === 'inch' || this.state.bottomSelectedDropDownValueState === 'inch') {
 
                 conversionResult = millimeterToInchConversion;
@@ -154,7 +151,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP MM TO BOTTOM M/ BOTTOM MM TO TOP M
             if (this.state.topSelectedDropDownValueState === 'meter' || this.state.bottomSelectedDropDownValueState === 'meter') {
 
                 conversionResult = millimeterToMeterConversion;
@@ -169,7 +165,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP MM TO BOTTOM FT/ BOTTOM MM TO TOP FT
             if (this.state.topSelectedDropDownValueState === 'foot' || this.state.bottomSelectedDropDownValueState === 'foot') {
 
                 conversionResult = millimeterToFootConversion;
@@ -184,7 +179,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP MM TO BOTTOM MI/ BOTTOM MM TO TOP MI
             if (this.state.topSelectedDropDownValueState === 'mile' || this.state.bottomSelectedDropDownValueState === 'mile') {
 
                 conversionResult = millimeterToMileConversion;
@@ -203,7 +197,6 @@ class FromToLength extends Component {
 
         if (resultBoxId === 'result-box-centimeter') {
 
-            // TOP CM TO BOTTOM MM/ BOTTOM CM TO TOP MM
             if (this.state.topSelectedDropDownValueState === 'millimeter' || this.state.bottomSelectedDropDownValueState === 'millimeter') {
 
                 conversionResult = centimeterToMillimeterConversion;
@@ -218,7 +211,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP CM TO BOTTOM IN/ BOTTOM CM TO TOP IN
             if (this.state.topSelectedDropDownValueState === 'inch' || this.state.bottomSelectedDropDownValueState === 'inch') {
 
                 conversionResult = centimeterToInchConversion;
@@ -233,7 +225,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP CM TO BOTTOM M/ BOTTOM CM TO TOP M
             if (this.state.topSelectedDropDownValueState === 'meter' || this.state.bottomSelectedDropDownValueState === 'meter') {
 
                 conversionResult = centimeterToMeterConversion;
@@ -248,7 +239,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP CM TO BOTTOM FT/ BOTTOM CM TO TOP FT
             if (this.state.topSelectedDropDownValueState === 'foot' || this.state.bottomSelectedDropDownValueState === 'foot') {
 
                 conversionResult = centimeterToFootConversion;
@@ -263,7 +253,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP CM TO BOTTOM MI/ BOTTOM CM TO TOP MI
             if (this.state.topSelectedDropDownValueState === 'mile' || this.state.bottomSelectedDropDownValueState === 'mile') {
 
                 conversionResult = centimeterToMileConversion;
@@ -282,7 +271,6 @@ class FromToLength extends Component {
 
         if (resultBoxId === 'result-box-inch') {
 
-            // TOP IN TO BOTTOM CM/ BOTTOM IN TO TOP CM
             if (this.state.topSelectedDropDownValueState === 'centimeter' || this.state.bottomSelectedDropDownValueState === 'centimeter') {
 
                 conversionResult = inchToCentimeterConversion;
@@ -297,7 +285,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP IN TO BOTTOM MM/ BOTTOM IN TO TOP MM
             if (this.state.topSelectedDropDownValueState === 'millimeter' || this.state.bottomSelectedDropDownValueState === 'millimeter') {
 
                 conversionResult = inchToMillimeterConversion;
@@ -312,7 +299,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP IN TO BOTTOM M/ BOTTOM IN TO TOP M
             if (this.state.topSelectedDropDownValueState === 'meter' || this.state.bottomSelectedDropDownValueState === 'meter') {
 
                 conversionResult = inchToMeterConversion;
@@ -327,7 +313,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP IN TO BOTTOM FT/ BOTTOM IN TO TOP FT
             if (this.state.topSelectedDropDownValueState === 'foot' || this.state.bottomSelectedDropDownValueState === 'foot') {
 
                 conversionResult = inchToFootConversion;
@@ -342,7 +327,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP IN TO BOTTOM MI/ BOTTOM IN TO TOP MI
             if (this.state.topSelectedDropDownValueState === 'mile' || this.state.bottomSelectedDropDownValueState === 'mile') {
 
                 conversionResult = inchToMileConversion;
@@ -361,7 +345,6 @@ class FromToLength extends Component {
 
         if (resultBoxId === 'result-box-meter') {
 
-            // TOP M TO BOTTOM IN/ BOTTOM M TO TOP IN
             if (this.state.topSelectedDropDownValueState === 'inch' || this.state.bottomSelectedDropDownValueState === 'inch') {
 
                 conversionResult = meterToInchConversion;
@@ -376,7 +359,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP M TO BOTTOM CM/ BOTTOM M TO TOP CM
             if (this.state.topSelectedDropDownValueState === 'centimeter' || this.state.bottomSelectedDropDownValueState === 'centimeter') {
 
                 conversionResult = meterToCentimeterConversion;
@@ -391,7 +373,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP M TO BOTTOM MM/ BOTTOM M TO TOP MM
             if (this.state.topSelectedDropDownValueState === 'millimeter' || this.state.bottomSelectedDropDownValueState === 'millimeter') {
 
                 conversionResult = meterToMillimeterConversion;
@@ -406,7 +387,6 @@ class FromToLength extends Component {
                 }      
             }
 
-            // TOP M TO BOTTOM FT/ BOTTOM M TO TOP FT
             if (this.state.topSelectedDropDownValueState === 'foot' || this.state.bottomSelectedDropDownValueState === 'foot') {
 
                 conversionResult = meterToFootConversion;
@@ -421,7 +401,6 @@ class FromToLength extends Component {
                 }      
             }
             
-            // TOP M TO BOTTOM MI/ BOTTOM M TO TOP MI
             if (this.state.topSelectedDropDownValueState === 'mile' || this.state.bottomSelectedDropDownValueState === 'mile') {
 
                 conversionResult = meterToMileConversion;
@@ -440,7 +419,6 @@ class FromToLength extends Component {
 
         if (resultBoxId === 'result-box-foot') {
 
-            // TOP FT TO BOTTOM M/ BOTTOM FT TO TOP M
             if (this.state.topSelectedDropDownValueState === 'meter' || this.state.bottomSelectedDropDownValueState === 'meter') {
 
                 conversionResult = footToMeterConversion;
@@ -455,7 +433,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP FT TO BOTTOM IN/ BOTTOM FT TO TOP IN
             if (this.state.topSelectedDropDownValueState === 'inch' || this.state.bottomSelectedDropDownValueState === 'inch') {
 
                 conversionResult = footToInchConversion;
@@ -470,7 +447,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP FT TO BOTTOM CM/ BOTTOM FT TO TOP CM
             if (this.state.topSelectedDropDownValueState === 'centimeter' || this.state.bottomSelectedDropDownValueState === 'centimeter') {
 
                 conversionResult = footToCentimeterConversion;
@@ -485,7 +461,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP FT TO BOTTOM MM/ BOTTOM FT TO TOP MM
             if (this.state.topSelectedDropDownValueState === 'millimeter' || this.state.bottomSelectedDropDownValueState === 'millimeter') {
 
                 conversionResult = footToMillimeterConversion;
@@ -500,7 +475,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP FT TO BOTTOM MI/ BOTTOM FT TO TOP MI
             if (this.state.topSelectedDropDownValueState === 'mile' || this.state.bottomSelectedDropDownValueState === 'mile') {
 
                 conversionResult = footToMileConversion;
@@ -519,7 +493,6 @@ class FromToLength extends Component {
 
         if (resultBoxId === 'result-box-mile') {
 
-            // TOP MI TO BOTTOM FT/ BOTTOM MI TO TOP FT
             if (this.state.topSelectedDropDownValueState === 'foot' || this.state.bottomSelectedDropDownValueState === 'foot') {
 
                 conversionResult = mileToFootConversion;
@@ -534,7 +507,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP MI TO BOTTOM M/ BOTTOM MI TO TOP M
             if (this.state.topSelectedDropDownValueState === 'meter' || this.state.bottomSelectedDropDownValueState === 'meter') {
 
                 conversionResult = mileToMeterConversion;
@@ -549,7 +521,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP MI TO BOTTOM IN/ BOTTOM MI TO TOP IN
             if (this.state.topSelectedDropDownValueState === 'inch' || this.state.bottomSelectedDropDownValueState === 'inch') {
 
                 conversionResult = mileToInchConversion;
@@ -564,7 +535,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP MI TO BOTTOM CM/ BOTTOM MI TO TOP CM
             if (this.state.topSelectedDropDownValueState === 'centimeter' || this.state.bottomSelectedDropDownValueState === 'centimeter') {
 
                 conversionResult = mileToCentimeterConversion;
@@ -579,7 +549,6 @@ class FromToLength extends Component {
                 }
             }
 
-            // TOP MI TO BOTTOM MM/ BOTTOM MI TO TOP MM
             if (this.state.topSelectedDropDownValueState === 'millimeter' || this.state.bottomSelectedDropDownValueState === 'millimeter') {
 
                 conversionResult = mileToMillimeterConversion;
@@ -603,10 +572,8 @@ class FromToLength extends Component {
         topSelectedUnitDropDownValue = event.target.value;
         bottomSelectedUnitDropDownValue = event.target.value;
 
-        // TOP DROP-DOWN
         if (unitDropDownId === 'drop-down-1') {
             this.setState({topSelectedDropDownValueState: topSelectedUnitDropDownValue})
-            console.log('Selected: ' + topSelectedUnitDropDownValue + ' in Box 1');
 
             if (topSelectedUnitDropDownValue === this.state.bottomSelectedDropDownValueState) {
                 this.setState({resultBoxOneValueState: this.state.resultBoxTwoValueState})
@@ -752,10 +719,8 @@ class FromToLength extends Component {
         }
 
 
-        // BOTTOM DROP-DOWN
         if (unitDropDownId === 'drop-down-2') {
             this.setState({bottomSelectedDropDownValueState: bottomSelectedUnitDropDownValue})
-            console.log('Selected: ' + bottomSelectedUnitDropDownValue + ' in Box 2');
 
             if (bottomSelectedUnitDropDownValue === this.state.topSelectedDropDownValueState) {
                 this.setState({resultBoxTwoValueState: this.state.resultBoxOneValueState})

@@ -1,4 +1,3 @@
-// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
 import React from 'react';
 
 const pageSecondaryHeading = (props) => (

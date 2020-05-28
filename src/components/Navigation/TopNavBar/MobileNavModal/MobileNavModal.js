@@ -1,4 +1,3 @@
-// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
 import React from 'react';
 import classes from './MobileNavModal.css';
 import NavigationItems from '../../NavigationItems/NavigationItems';
@@ -6,7 +5,6 @@ import NavigationItems from '../../NavigationItems/NavigationItems';
 
 const mobileNavModal = (props) => {
 
-    // MOBILE NAV MODAL OPEN/ CLOSE LOGIC
     let attachedClasses = [classes.MobileNavModal];
 
     if (props.open) {

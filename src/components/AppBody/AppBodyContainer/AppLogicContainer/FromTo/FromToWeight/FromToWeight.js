@@ -1,4 +1,3 @@
-// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
 import DropDownMenuSelect from '../../../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
 import DropDownMenuOptions from '../../../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
@@ -124,7 +123,6 @@ class FromToWeight extends Component {
 
         if (resultBoxId === 'result-box-milligram') {
 
-            // TOP MG TO BOTTOM G/ BOTTOM MG TO TOP G
             if (this.state.topSelectedDropDownValueState === 'gram' || this.state.bottomSelectedDropDownValueState === 'gram') {
 
                 conversionResult = milligramToGramConversion;
@@ -139,7 +137,6 @@ class FromToWeight extends Component {
                 }      
             }
         
-            // TOP MG TO BOTTOM KG/ BOTTOM MG TO TOP KG
             if (this.state.topSelectedDropDownValueState === 'kilogram' || this.state.bottomSelectedDropDownValueState === 'kilogram') {
 
                 conversionResult = milligramToKilogramConversion;
@@ -154,7 +151,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP MG TO BOTTOM OZ/ BOTTOM MG TO TOP OZ
             if (this.state.topSelectedDropDownValueState === 'ounce' || this.state.bottomSelectedDropDownValueState === 'ounce') {
 
                 conversionResult = milligramToOunceConversion;
@@ -169,7 +165,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP MG TO BOTTOM LB/ BOTTOM MG TO TOP LB
             if (this.state.topSelectedDropDownValueState === 'pound' || this.state.bottomSelectedDropDownValueState === 'pound') {
 
                 conversionResult = milligramToPoundConversion;
@@ -184,7 +179,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP MG TO BOTTOM T/ BOTTOM MG TO TOP T
             if (this.state.topSelectedDropDownValueState === 'ton' || this.state.bottomSelectedDropDownValueState === 'ton') {
 
                 conversionResult = milligramToTonConversion;
@@ -203,7 +197,6 @@ class FromToWeight extends Component {
 
         if (resultBoxId === 'result-box-gram') {
 
-            // TOP G TO BOTTOM MG/ BOTTOM G TO TOP MG
             if (this.state.topSelectedDropDownValueState === 'milligram' || this.state.bottomSelectedDropDownValueState === 'milligram') {
 
                 conversionResult = gramToMilligramConversion;
@@ -218,7 +211,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP G TO BOTTOM KG/ BOTTOM G TO TOP KG
             if (this.state.topSelectedDropDownValueState === 'kilogram' || this.state.bottomSelectedDropDownValueState === 'kilogram') {
 
                 conversionResult = gramToKilogramConversion;
@@ -233,7 +225,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP G TO BOTTOM OZ/ BOTTOM G TO TOP OZ
             if (this.state.topSelectedDropDownValueState === 'ounce' || this.state.bottomSelectedDropDownValueState === 'ounce') {
 
                 conversionResult = gramToOunceConversion;
@@ -248,7 +239,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP G TO BOTTOM LB/ BOTTOM G TO TOP LB
             if (this.state.topSelectedDropDownValueState === 'pound' || this.state.bottomSelectedDropDownValueState === 'pound') {
 
                 conversionResult = gramToPoundConversion;
@@ -263,7 +253,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP G TO BOTTOM T/ BOTTOM G TO TOP T
             if (this.state.topSelectedDropDownValueState === 'ton' || this.state.bottomSelectedDropDownValueState === 'ton') {
 
                 conversionResult = gramToTonConversion;
@@ -282,7 +271,6 @@ class FromToWeight extends Component {
 
         if (resultBoxId === 'result-box-kilogram') {
 
-            // TOP KG TO BOTTOM G/ BOTTOM KG TO TOP G
             if (this.state.topSelectedDropDownValueState === 'gram' || this.state.bottomSelectedDropDownValueState === 'gram') {
 
                 conversionResult = kilogramToGramConversion;
@@ -297,7 +285,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP KG TO BOTTOM MG/ BOTTOM KG TO TOP MG
             if (this.state.topSelectedDropDownValueState === 'milligram' || this.state.bottomSelectedDropDownValueState === 'milligram') {
 
                 conversionResult = kilogramToMilligramConversion;
@@ -312,7 +299,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP KG TO BOTTOM OZ/ BOTTOM KG TO TOP OZ
             if (this.state.topSelectedDropDownValueState === 'ounce' || this.state.bottomSelectedDropDownValueState === 'ounce') {
 
                 conversionResult = kilogramToOunceConversion;
@@ -327,7 +313,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP KG TO BOTTOM LB/ BOTTOM KG TO TOP LB
             if (this.state.topSelectedDropDownValueState === 'pound' || this.state.bottomSelectedDropDownValueState === 'pound') {
 
                 conversionResult = kilogramToPoundConversion;
@@ -342,7 +327,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP KG TO BOTTOM T/ BOTTOM KG TO TOP T
             if (this.state.topSelectedDropDownValueState === 'ton' || this.state.bottomSelectedDropDownValueState === 'ton') {
 
                 conversionResult = kilogramToTonConversion;
@@ -361,7 +345,6 @@ class FromToWeight extends Component {
 
         if (resultBoxId === 'result-box-ounce') {
 
-            // TOP OZ TO BOTTOM KG/ BOTTOM OZ TO TOP KG
             if (this.state.topSelectedDropDownValueState === 'kilogram' || this.state.bottomSelectedDropDownValueState === 'kilogram') {
 
                 conversionResult = ounceToKilogramConversion;
@@ -376,7 +359,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP OZ TO BOTTOM G/ BOTTOM OZ TO TOP G
             if (this.state.topSelectedDropDownValueState === 'gram' || this.state.bottomSelectedDropDownValueState === 'gram') {
 
                 conversionResult = ounceToGramConversion;
@@ -391,7 +373,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP OZ TO BOTTOM MG/ BOTTOM OZ TO TOP MG
             if (this.state.topSelectedDropDownValueState === 'milligram' || this.state.bottomSelectedDropDownValueState === 'milligram') {
 
                 conversionResult = ounceToMilligramConversion;
@@ -406,7 +387,6 @@ class FromToWeight extends Component {
                 }      
             }
 
-            // TOP OZ TO BOTTOM LB/ BOTTOM OZ TO TOP LB
             if (this.state.topSelectedDropDownValueState === 'pound' || this.state.bottomSelectedDropDownValueState === 'pound') {
 
                 conversionResult = ounceToPoundConversion;
@@ -421,7 +401,6 @@ class FromToWeight extends Component {
                 }      
             }
             
-            // TOP OZ TO BOTTOM T/ BOTTOM OZ TO TOP T
             if (this.state.topSelectedDropDownValueState === 'ton' || this.state.bottomSelectedDropDownValueState === 'ton') {
 
                 conversionResult = ounceToTonConversion;
@@ -440,7 +419,6 @@ class FromToWeight extends Component {
 
         if (resultBoxId === 'result-box-pound') {
 
-            // TOP LB TO BOTTOM OZ/ BOTTOM LB TO TOP OZ
             if (this.state.topSelectedDropDownValueState === 'ounce' || this.state.bottomSelectedDropDownValueState === 'ounce') {
 
                 conversionResult = poundToOunceConversion
@@ -455,7 +433,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP LB TO BOTTOM KG/ BOTTOM LB TO TOP KG
             if (this.state.topSelectedDropDownValueState === 'kilogram' || this.state.bottomSelectedDropDownValueState === 'kilogram') {
 
                 conversionResult = poundToKilogramConversion;
@@ -470,7 +447,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP LB TO BOTTOM G/ BOTTOM LB TO TOP G
             if (this.state.topSelectedDropDownValueState === 'gram' || this.state.bottomSelectedDropDownValueState === 'gram') {
 
                 conversionResult = poundToGramConversion;
@@ -485,7 +461,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP LB TO BOTTOM MG/ BOTTOM LB TO TOP MG
             if (this.state.topSelectedDropDownValueState === 'milligram' || this.state.bottomSelectedDropDownValueState === 'milligram') {
 
                 conversionResult = poundToMilligramConversion;
@@ -500,7 +475,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP LB TO BOTTOM T/ BOTTOM LB TO TOP T
             if (this.state.topSelectedDropDownValueState === 'ton' || this.state.bottomSelectedDropDownValueState === 'ton') {
 
                 conversionResult = poundToTonConversion;
@@ -519,7 +493,6 @@ class FromToWeight extends Component {
 
         if (resultBoxId === 'result-box-ton') {
 
-            // TOP T TO BOTTOM LB/ BOTTOM T TO TOP LB
             if (this.state.topSelectedDropDownValueState === 'pound' || this.state.bottomSelectedDropDownValueState === 'pound') {
 
                 conversionResult = tonToPoundConversion;
@@ -534,7 +507,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP T TO BOTTOM OZ/ BOTTOM T TO TOP OZ
             if (this.state.topSelectedDropDownValueState === 'ounce' || this.state.bottomSelectedDropDownValueState === 'ounce') {
 
                 conversionResult = tonToOunceConversion;
@@ -549,7 +521,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP T TO BOTTOM KG/ BOTTOM T TO TOP KG
             if (this.state.topSelectedDropDownValueState === 'kilogram' || this.state.bottomSelectedDropDownValueState === 'kilogram') {
 
                 conversionResult = tonToKilogramConversion;
@@ -564,7 +535,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP T TO BOTTOM G/ BOTTOM T TO TOP G
             if (this.state.topSelectedDropDownValueState === 'gram' || this.state.bottomSelectedDropDownValueState === 'gram') {
 
                 conversionResult = tonToGramConversion;
@@ -579,7 +549,6 @@ class FromToWeight extends Component {
                 }
             }
 
-            // TOP T TO BOTTOM MG/ BOTTOM T TO TOP MG
             if (this.state.topSelectedDropDownValueState === 'milligram' || this.state.bottomSelectedDropDownValueState === 'milligram') {
 
                 conversionResult = tonToMilligramConversion;
@@ -603,10 +572,8 @@ class FromToWeight extends Component {
         topSelectedUnitDropDownValue = event.target.value;
         bottomSelectedUnitDropDownValue = event.target.value;
 
-        // TOP DROP-DOWN
         if (unitDropDownId === 'drop-down-1') {
             this.setState({topSelectedDropDownValueState: topSelectedUnitDropDownValue})
-            console.log('Selected: ' + topSelectedUnitDropDownValue + ' in Box 1');
 
             if (topSelectedUnitDropDownValue === this.state.bottomSelectedDropDownValueState) {
                 this.setState({resultBoxOneValueState: this.state.resultBoxTwoValueState})
@@ -752,10 +719,8 @@ class FromToWeight extends Component {
         }
 
 
-        // BOTTOM DROP-DOWN
         if (unitDropDownId === 'drop-down-2') {
             this.setState({bottomSelectedDropDownValueState: bottomSelectedUnitDropDownValue})
-            console.log('Selected: ' + bottomSelectedUnitDropDownValue + ' in Box 2');
 
             if (bottomSelectedUnitDropDownValue === this.state.topSelectedDropDownValueState) {
                 this.setState({resultBoxTwoValueState: this.state.resultBoxOneValueState})

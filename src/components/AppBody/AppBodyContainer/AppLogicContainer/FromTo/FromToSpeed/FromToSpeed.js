@@ -1,4 +1,3 @@
-// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
 import DropDownMenuSelect from '../../../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
 import DropDownMenuOptions from '../../../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
@@ -102,7 +101,6 @@ class FromToSpeed extends Component {
 
         if (resultBoxId === 'result-box-meter-per-second') {
 
-            // TOP MPS TO BOTTOM FPS/ BOTTOM MPS TO TOP FPS
             if (this.state.topSelectedDropDownValueState === 'foot-per-second' || this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
 
                 conversionResult = meterPerSecondToFootPerSecondConversion;
@@ -117,7 +115,6 @@ class FromToSpeed extends Component {
                 }      
             }
         
-            // TOP MPS TO BOTTOM KPH/ BOTTOM MPS TO TOP KPH
             if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour' || this.state.bottomSelectedDropDownValueState === 'kilometer-per-hour') {
 
                 conversionResult = meterPerSecondToKilometerPerHourConversion;
@@ -132,7 +129,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP MPS TO BOTTOM MPH/ BOTTOM MPS TO TOP MPH
             if (this.state.topSelectedDropDownValueState === 'mile-per-hour' || this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
 
                 conversionResult = meterPerSecondToMilePerHourConversion;
@@ -147,7 +143,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP MPS TO BOTTOM KNOT/ BOTTOM MPS TO TOP KNOT
             if (this.state.topSelectedDropDownValueState === 'knot' || this.state.bottomSelectedDropDownValueState === 'knot') {
 
                 conversionResult = meterPerSecondToKnotConversion;
@@ -166,7 +161,6 @@ class FromToSpeed extends Component {
 
         if (resultBoxId === 'result-box-foot-per-second') {
 
-            // TOP FPS TO BOTTOM MPS/ BOTTOM FPS TO TOP MPS
             if (this.state.topSelectedDropDownValueState === 'meter-per-second' || this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
 
                 conversionResult = footPerSecondToMeterPerSecondConversion;
@@ -181,7 +175,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP FPS TO BOTTOM KPH/ BOTTOM FPS TO TOP KPH
             if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour' || this.state.bottomSelectedDropDownValueState === 'kilometer-per-hour') {
 
                 conversionResult = footPerSecondToKilometerPerHourConversion;
@@ -196,7 +189,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP FPS TO BOTTOM MPH/ BOTTOM FPS TO TOP MPH
             if (this.state.topSelectedDropDownValueState === 'mile-per-hour' || this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
 
                 conversionResult = footPerSecondToMilePerHourConversion;
@@ -211,7 +203,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP FPS TO BOTTOM KNOT/ BOTTOM FPS TO TOP KNOT
             if (this.state.topSelectedDropDownValueState === 'knot' || this.state.bottomSelectedDropDownValueState === 'knot') {
 
                 conversionResult = footPerSecondToKnotConversion;
@@ -230,7 +221,6 @@ class FromToSpeed extends Component {
 
         if (resultBoxId === 'result-box-kilometer-per-hour') {
 
-            // TOP KMH TO BOTTOM FPS/ BOTTOM KMH TO TOP FPS
             if (this.state.topSelectedDropDownValueState === 'foot-per-second' || this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
 
                 conversionResult = kilometerPerHourToFootPerSecondConversion;
@@ -245,7 +235,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP KMH TO BOTTOM MPS/ BOTTOM KMH TO TOP MPS
             if (this.state.topSelectedDropDownValueState === 'meter-per-second' || this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
 
                 conversionResult = kilometerPerHourToMeterPerSecondConversion;
@@ -260,7 +249,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP KMH TO BOTTOM KMH/ BOTTOM KMH TO TOP KMH
             if (this.state.topSelectedDropDownValueState === 'mile-per-hour' || this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
 
                 conversionResult = kilometerPerHourToMilePerHourConversion;
@@ -275,7 +263,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP KMH TO BOTTOM KNOT/ BOTTOM KMH TO TOP KNOT
             if (this.state.topSelectedDropDownValueState === 'knot' || this.state.bottomSelectedDropDownValueState === 'knot') {
 
                 conversionResult = kilometerPerHourToKnotConversion;
@@ -294,7 +281,6 @@ class FromToSpeed extends Component {
 
         if (resultBoxId === 'result-box-mile-per-hour') {
 
-            // TOP MPH TO BOTTOM KMH/ BOTTOM MPH TO TOP KMH
             if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour' || this.state.bottomSelectedDropDownValueState === 'kilometer-per-hour') {
 
                 conversionResult = milePerHourToKilometerPerHourConversion;
@@ -309,7 +295,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP MPH TO BOTTOM FPS/ BOTTOM MPH TO TOP FPS
             if (this.state.topSelectedDropDownValueState === 'foot-per-second' || this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
 
                 conversionResult = milePerHourToFootPerSecondConversion;
@@ -324,7 +309,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP MPH TO BOTTOM MPS/ BOTTOM MPH TO TOP MPS
             if (this.state.topSelectedDropDownValueState === 'meter-per-second' || this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
 
                 conversionResult = milePerHourToMeterPerSecondConversion;
@@ -339,7 +323,6 @@ class FromToSpeed extends Component {
                 }      
             }
 
-            // TOP MPH TO BOTTOM KNOT/ BOTTOM MPH TO TOP KNOT
             if (this.state.topSelectedDropDownValueState === 'knot' || this.state.bottomSelectedDropDownValueState === 'knot') {
 
                 conversionResult = milePerHourToKnotConversion;
@@ -358,7 +341,6 @@ class FromToSpeed extends Component {
 
         if (resultBoxId === 'result-box-knot') {
 
-            // TOP KNOT TO BOTTOM MPH/ BOTTOM KNOT TO TOP MPH
             if (this.state.topSelectedDropDownValueState === 'mile-per-hour' || this.state.bottomSelectedDropDownValueState === 'mile-per-hour') {
 
                 conversionResult = knotToMilePerHourConversion
@@ -373,7 +355,6 @@ class FromToSpeed extends Component {
                 }
             }
 
-            // TOP KNOT TO BOTTOM KMH/ BOTTOM KNOT TO TOP KMH
             if (this.state.topSelectedDropDownValueState === 'kilometer-per-hour' || this.state.bottomSelectedDropDownValueState === 'kilogram') {
 
                 conversionResult = knotToKilometerPerHourConversion;
@@ -388,7 +369,6 @@ class FromToSpeed extends Component {
                 }
             }
 
-            // TOP KNOT TO BOTTOM FPS/ BOTTOM KNOT TO TOP FPS
             if (this.state.topSelectedDropDownValueState === 'foot-per-second' || this.state.bottomSelectedDropDownValueState === 'foot-per-second') {
 
                 conversionResult = knotToFootPerSecondConversion;
@@ -403,7 +383,6 @@ class FromToSpeed extends Component {
                 }
             }
 
-            // TOP KNOT TO BOTTOM MPS/ BOTTOM KNOT TO TOP MPS
             if (this.state.topSelectedDropDownValueState === 'meter-per-second' || this.state.bottomSelectedDropDownValueState === 'meter-per-second') {
 
                 conversionResult = knotToMeterPerSecondConversion;
@@ -427,10 +406,8 @@ class FromToSpeed extends Component {
         topSelectedUnitDropDownValue = event.target.value;
         bottomSelectedUnitDropDownValue = event.target.value;
 
-        // TOP DROP-DOWN
         if (unitDropDownId === 'drop-down-1') {
             this.setState({topSelectedDropDownValueState: topSelectedUnitDropDownValue})
-            console.log('Selected: ' + topSelectedUnitDropDownValue + ' in Box 1');
 
             if (topSelectedUnitDropDownValue === this.state.bottomSelectedDropDownValueState) {
                 this.setState({resultBoxOneValueState: this.state.resultBoxTwoValueState})
@@ -533,10 +510,8 @@ class FromToSpeed extends Component {
         }
 
 
-        // BOTTOM DROP-DOWN
         if (unitDropDownId === 'drop-down-2') {
             this.setState({bottomSelectedDropDownValueState: bottomSelectedUnitDropDownValue})
-            console.log('Selected: ' + bottomSelectedUnitDropDownValue + ' in Box 2');
 
             if (bottomSelectedUnitDropDownValue === this.state.topSelectedDropDownValueState) {
                 this.setState({resultBoxTwoValueState: this.state.resultBoxOneValueState})

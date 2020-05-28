@@ -1,4 +1,3 @@
-// CLASS-BASED COMPONENT - STATE MANAGEMENT (STATEFUL COMPONENT)
 import React, {Component} from 'react';
 import DropDownMenuSelect from '../../../../../UI/DropDownMenu/DropDownMenuSelect/DropDownMenuSelect';
 import DropDownMenuOptions from '../../../../../UI/DropDownMenu/DropDownMenuOptions/DropDownMenuOptions';
@@ -63,7 +62,6 @@ class FromToTemperature extends Component {
 
         if (resultBoxId === 'result-box-celsius') {
 
-            // TOP C TO BOTTOM F/ BOTTOM C TO TOP F
             if (this.state.topSelectedDropDownValueState === 'fahrenheit' || this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
 
                 conversionResult = roundedCelsiusToFahrenheitConversion;
@@ -81,7 +79,6 @@ class FromToTemperature extends Component {
 
         if (resultBoxId === 'result-box-fahrenheit') {
 
-            // TOP F TO BOTTOM C/ BOTTOM F TO TOP C
             if (this.state.topSelectedDropDownValueState === 'celsius' || this.state.bottomSelectedDropDownValueState === 'celsius') {
 
                 conversionResult = roundedFahrenheitToCelsiusConversion;
@@ -107,7 +104,6 @@ class FromToTemperature extends Component {
         
         if (unitDropDownId === 'drop-down-1') {
             this.setState({topSelectedDropDownValueState: topSelectedUnitDropDownValue})
-            console.log('Selected: ' + topSelectedUnitDropDownValue + ' in Box 1');
 
                 if (topSelectedUnitDropDownValue === 'celsius' && this.state.bottomSelectedDropDownValueState === 'fahrenheit') {
                     this.setState({resultBoxOneValueState: Math.round(Number((this.state.resultBoxTwoValueState - 32) * 5/9))});
@@ -124,7 +120,6 @@ class FromToTemperature extends Component {
         
         if (unitDropDownId === 'drop-down-2') {
             this.setState({bottomSelectedDropDownValueState: bottomSelectedUnitDropDownValue})
-            console.log('Selected: ' + bottomSelectedUnitDropDownValue + ' in Box 2');
 
                 if (bottomSelectedUnitDropDownValue === 'fahrenheit' && this.state.topSelectedDropDownValueState === 'celsius') {
                     this.setState({resultBoxTwoValueState: Math.round(Number((this.state.resultBoxOneValueState * 9/5) + 32))});

@@ -1,4 +1,3 @@
-// FUNCTIONAL COMPONENT - NO STATE MANAGEMENT (STATELESS COMPONENT)
 import React, {Component} from 'react';
 import FromToTemperature from '../AppLogicContainer/FromTo/FromToTemperature/FromToTemperature';
 import FromToWeight from '../AppLogicContainer/FromTo/FromToWeight/FromToWeight';
@@ -39,8 +38,6 @@ class AppLogicContainer extends Component {
 
 
     render() {
-
-        //console.log(<DropDownMenuOptions />)
 
         let selectedFromToComponent = null
 
