@@ -18,7 +18,7 @@ const speedMeasurementUnits = [
  ];
 
 const speedMeasurementUnitsArray = speedMeasurementUnits.map(ctrl => (
-    <option value={ctrl.value}>{ctrl.label}</option>
+    <option value={ctrl.value} key={ctrl.value}>{ctrl.label}</option>
 ));
 
 let resultBox1 = '';

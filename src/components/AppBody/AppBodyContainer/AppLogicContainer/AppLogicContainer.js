@@ -19,7 +19,7 @@ const unitNameValues = [
  ];
 
 const unitNameValuesArray = unitNameValues.map(ctrl => (
-    <option value={ctrl.value}>{ctrl.label}</option>
+    <option value={ctrl.value} key={ctrl.value}>{ctrl.label}</option>
 ));
 
 
@@ -39,6 +39,8 @@ class AppLogicContainer extends Component {
 
 
     render() {
+
+        //console.log(<DropDownMenuOptions />)
 
         let selectedFromToComponent = null
 
@@ -73,7 +75,7 @@ class AppLogicContainer extends Component {
 
                     <DropDownMenuSelect changed={this.unitNameTitleChangedHandler}>
                         <DropDownMenuOptions 
-                            dropDownListOptions={unitNameValuesArray} 
+                            dropDownListOptions={unitNameValuesArray}
                         />
                     </DropDownMenuSelect>
                     
