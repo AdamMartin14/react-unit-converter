@@ -2,7 +2,7 @@
     padding: 4px;
     margin-top: 10px;
     margin-bottom: 33px;
-    width: 85%;
+    width: 100%;
     min-width: 210px;
     max-width: 300px;
     align-self: center;
@@ -10,3 +10,12 @@
     border: 1px solid grey;
     border-radius: 4px;
 }
+
+@media (min-width: 375px) {
+    .ResultInputBox {
+        width: 85%;
+    }
+}
+
+
+

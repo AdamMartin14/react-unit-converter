@@ -10,8 +10,8 @@ var convert = require('convert-units')
 
 
 const lengthMeasurementUnits = [
-    { value: 'millimeter', label: 'Millimeter' },
     { value: 'centimeter', label: 'Centimeter' },
+    { value: 'millimeter', label: 'Millimeter' },
     { value: 'inch', label: 'Inch' },
     { value: 'meter', label: 'Meter' },
     { value: 'foot', label: 'Foot' },
@@ -70,8 +70,8 @@ class FromToLength extends Component {
     state = { 
         resultBoxOneValueState: '',
         resultBoxTwoValueState: '',
-        topSelectedDropDownValueState: 'millimeter',
-        bottomSelectedDropDownValueState: 'centimeter'
+        topSelectedDropDownValueState: 'centimeter',
+        bottomSelectedDropDownValueState: 'millimeter'
     }
 
 
@@ -80,41 +80,41 @@ class FromToLength extends Component {
         inputValue = event.target.value;
         resultBoxId = event.target.id;
 
-        millimeterToCentimeterConversion = convert(inputValue).from('mm').to('cm').toFixed(1);
-        millimeterToInchConversion = convert(inputValue).from('mm').to('in').toFixed(1);
-        millimeterToMeterConversion = convert(inputValue).from('mm').to('m').toFixed(1);
-        millimeterToFootConversion = convert(inputValue).from('mm').to('ft').toFixed(1);
+        millimeterToCentimeterConversion = convert(inputValue).from('mm').to('cm').toFixed(2);
+        millimeterToInchConversion = convert(inputValue).from('mm').to('in').toFixed(2);
+        millimeterToMeterConversion = convert(inputValue).from('mm').to('m').toFixed(2);
+        millimeterToFootConversion = convert(inputValue).from('mm').to('ft').toFixed(2);
         millimeterToMileConversion = convert(inputValue).from('mm').to('mi');
 
-        centimeterToMillimeterConversion = convert(inputValue).from('cm').to('mm').toFixed(1);
-        centimeterToInchConversion = convert(inputValue).from('cm').to('in').toFixed(1);
-        centimeterToMeterConversion = convert(inputValue).from('cm').to('m').toFixed(1);
-        centimeterToFootConversion = convert(inputValue).from('cm').to('ft').toFixed(1);
+        centimeterToMillimeterConversion = convert(inputValue).from('cm').to('mm').toFixed(2);
+        centimeterToInchConversion = convert(inputValue).from('cm').to('in').toFixed(2);
+        centimeterToMeterConversion = convert(inputValue).from('cm').to('m').toFixed(2);
+        centimeterToFootConversion = convert(inputValue).from('cm').to('ft').toFixed(2);
         centimeterToMileConversion = convert(inputValue).from('cm').to('mi');
 
-        inchToCentimeterConversion = convert(inputValue).from('in').to('cm').toFixed(1);
-        inchToMillimeterConversion = convert(inputValue).from('in').to('mm').toFixed(1);
-        inchToMeterConversion = convert(inputValue).from('in').to('m').toFixed(1);
-        inchToFootConversion = convert(inputValue).from('in').to('ft').toFixed(1);
+        inchToCentimeterConversion = convert(inputValue).from('in').to('cm').toFixed(2);
+        inchToMillimeterConversion = convert(inputValue).from('in').to('mm').toFixed(2);
+        inchToMeterConversion = convert(inputValue).from('in').to('m').toFixed(2);
+        inchToFootConversion = convert(inputValue).from('in').to('ft').toFixed(2);
         inchToMileConversion = convert(inputValue).from('in').to('mi');
 
-        meterToInchConversion = convert(inputValue).from('m').to('in').toFixed(1);
-        meterToCentimeterConversion = convert(inputValue).from('m').to('cm').toFixed(1);
-        meterToMillimeterConversion = convert(inputValue).from('m').to('mm').toFixed(1);
-        meterToFootConversion = convert(inputValue).from('m').to('ft').toFixed(1);
+        meterToInchConversion = convert(inputValue).from('m').to('in').toFixed(2);
+        meterToCentimeterConversion = convert(inputValue).from('m').to('cm').toFixed(2);
+        meterToMillimeterConversion = convert(inputValue).from('m').to('mm').toFixed(2);
+        meterToFootConversion = convert(inputValue).from('m').to('ft').toFixed(2);
         meterToMileConversion = convert(inputValue).from('m').to('mi');
 
-        footToMeterConversion = convert(inputValue).from('ft').to('m').toFixed(1);
-        footToInchConversion = convert(inputValue).from('ft').to('in').toFixed(1);
-        footToCentimeterConversion = convert(inputValue).from('ft').to('cm').toFixed(1);
-        footToMillimeterConversion = convert(inputValue).from('ft').to('mm').toFixed(1);
+        footToMeterConversion = convert(inputValue).from('ft').to('m').toFixed(2);
+        footToInchConversion = convert(inputValue).from('ft').to('in').toFixed(2);
+        footToCentimeterConversion = convert(inputValue).from('ft').to('cm').toFixed(2);
+        footToMillimeterConversion = convert(inputValue).from('ft').to('mm').toFixed(2);
         footToMileConversion = convert(inputValue).from('ft').to('mi');
 
-        mileToFootConversion = convert(inputValue).from('mi').to('ft').toFixed(1);
-        mileToMeterConversion = convert(inputValue).from('mi').to('m').toFixed(1);
-        mileToInchConversion = convert(inputValue).from('mi').to('in').toFixed(1);
-        mileToCentimeterConversion = convert(inputValue).from('mi').to('cm').toFixed(1);
-        mileToMillimeterConversion = convert(inputValue).from('mi').to('mm').toFixed(1);
+        mileToFootConversion = convert(inputValue).from('mi').to('ft').toFixed(2);
+        mileToMeterConversion = convert(inputValue).from('mi').to('m').toFixed(2);
+        mileToInchConversion = convert(inputValue).from('mi').to('in').toFixed(2);
+        mileToCentimeterConversion = convert(inputValue).from('mi').to('cm').toFixed(2);
+        mileToMillimeterConversion = convert(inputValue).from('mi').to('mm').toFixed(2);
 
 
         if (this.state.topSelectedDropDownValueState === this.state.bottomSelectedDropDownValueState) {
@@ -615,19 +615,19 @@ class FromToLength extends Component {
             if (topSelectedUnitDropDownValue === 'millimeter') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 10)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 10)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 25.4)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 25.4)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1000)).toFixed(1)});                    
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 1000)).toFixed(2)});                    
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 305)).toFixed(1)});                         
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 305)).toFixed(2)});                         
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile') {
@@ -638,19 +638,19 @@ class FromToLength extends Component {
             if (topSelectedUnitDropDownValue === 'centimeter') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 10)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 10)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2.54)).toFixed(1)});
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 2.54)).toFixed(2)});
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 100)).toFixed(1)});                                        
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 100)).toFixed(2)});                                        
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 30.48)).toFixed(1)});                                             
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 30.48)).toFixed(2)});                                             
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile') {
@@ -661,19 +661,19 @@ class FromToLength extends Component {
             if (topSelectedUnitDropDownValue === 'inch') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2.54)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 2.54)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 25.4)).toFixed(1)});                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 25.4)).toFixed(2)});                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 39.37)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 39.37)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 12)).toFixed(1)});                                                                                                         
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 12)).toFixed(2)});                                                                                                         
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile') {
@@ -684,19 +684,19 @@ class FromToLength extends Component {
             if (topSelectedUnitDropDownValue === 'meter') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 39.37)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 39.37)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 100)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 100)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1000)).toFixed(1)});                                                                                                                                                                     
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1000)).toFixed(2)});                                                                                                                                                                     
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 3.281)).toFixed(1)});                                                                                                                                                                       
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 3.281)).toFixed(2)});                                                                                                                                                                       
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile') {
@@ -707,19 +707,19 @@ class FromToLength extends Component {
             if (topSelectedUnitDropDownValue === 'foot') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 3.281)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState * 3.281)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 12)).toFixed(1)});                                                                                                                                                                                           
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 12)).toFixed(2)});                                                                                                                                                                                           
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 30.48)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 30.48)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 305)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 305)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'mile') {
@@ -730,23 +730,23 @@ class FromToLength extends Component {
             if (topSelectedUnitDropDownValue === 'mile') {
 
                 if (this.state.bottomSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 5280)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 5280)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1609)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1609)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 63360)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 63360)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 160934)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 160934)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.bottomSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.609e+6)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxOneValueState: Number((this.state.resultBoxTwoValueState / 1.609e+6)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
             }
         }
@@ -764,19 +764,19 @@ class FromToLength extends Component {
             if (bottomSelectedUnitDropDownValue === 'millimeter') {
 
                 if (this.state.topSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 10)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 10)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 25.4)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 25.4)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1000)).toFixed(1)});                    
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 1000)).toFixed(2)});                    
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 305)).toFixed(1)});                         
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 305)).toFixed(2)});                         
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile') {
@@ -787,19 +787,19 @@ class FromToLength extends Component {
             if (bottomSelectedUnitDropDownValue === 'centimeter') {
 
                 if (this.state.topSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 10)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 10)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.54)).toFixed(1)});
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.54)).toFixed(2)});
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 100)).toFixed(1)});                                        
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 100)).toFixed(2)});                                        
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 30.48)).toFixed(1)});                                             
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 30.48)).toFixed(2)});                                             
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile') {
@@ -810,19 +810,19 @@ class FromToLength extends Component {
             if (bottomSelectedUnitDropDownValue === 'inch') {
 
                 if (this.state.topSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.54)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 2.54)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 25.4)).toFixed(1)});                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 25.4)).toFixed(2)});                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 39.37)).toFixed(1)});                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 39.37)).toFixed(2)});                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 12)).toFixed(1)});                                                                                                         
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 12)).toFixed(2)});                                                                                                         
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile') {
@@ -833,19 +833,19 @@ class FromToLength extends Component {
             if (bottomSelectedUnitDropDownValue === 'meter') {
 
                 if (this.state.topSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 39.37)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 39.37)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 100)).toFixed(1)});                                                                                                                                                 
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 100)).toFixed(2)});                                                                                                                                                 
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1000)).toFixed(1)});                                                                                                                                                                     
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1000)).toFixed(2)});                                                                                                                                                                     
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 3.281)).toFixed(1)});                                                                                                                                                                       
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 3.281)).toFixed(2)});                                                                                                                                                                       
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile') {
@@ -856,19 +856,19 @@ class FromToLength extends Component {
             if (bottomSelectedUnitDropDownValue === 'foot') {
 
                 if (this.state.topSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 3.281)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState * 3.281)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 12)).toFixed(1)});                                                                                                                                                                                           
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 12)).toFixed(2)});                                                                                                                                                                                           
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 30.48)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 30.48)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 305)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 305)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'mile') {
@@ -879,23 +879,23 @@ class FromToLength extends Component {
             if (bottomSelectedUnitDropDownValue === 'mile') {
 
                 if (this.state.topSelectedDropDownValueState === 'foot') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 5280)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 5280)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'meter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1609)).toFixed(1)});                                                                                                                                                                                                               
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1609)).toFixed(2)});                                                                                                                                                                                                               
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'inch') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 63360)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 63360)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'centimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 160934)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 160934)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
 
                 if (this.state.topSelectedDropDownValueState === 'millimeter') {
-                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.609e+6)).toFixed(1)});                                                                                                                                                                                                                                   
+                    this.setState({resultBoxTwoValueState: Number((this.state.resultBoxOneValueState / 1.609e+6)).toFixed(2)});                                                                                                                                                                                                                                   
                 }
             }
         }    
