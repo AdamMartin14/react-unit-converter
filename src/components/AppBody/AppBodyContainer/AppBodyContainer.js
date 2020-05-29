@@ -3,7 +3,7 @@ import PagePrimaryHeading from '../PagePrimaryHeading/PagePrimaryHeading';
 import AppLogicContainer from './AppLogicContainer/AppLogicContainer';
 import classes from '../AppBodyContainer/AppBodyContainer.css';
 
-const appTitle = 'eact Unit Converter';
+const appTitle = 'React Unit Converter';
 
 
 const appBodyContainer = (props) => (
